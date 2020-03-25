@@ -1,0 +1,39 @@
+search /Xresources
+set path+=**
+find Xresources
+open_with 
+search X11
+shell  %s
+shell mkdir develop %s
+search .vim
+search 
+search deve
+search w
+Q
+search devellkl
+set vcs_aware true
+search wal
+shell slock
+search scri
+search dow
+shell sudo dpkg -i  %s
+shell feh --bg-scale %s
+shell vi %s
+shell cd -
+cd /var/lib/gems/2.5.0/gems/colorls-1.3.3/lib/
+shell
+cd $(dirname $(gem which colorls))
+cd /var/lib/gems/2.5.0/gems/colorls-1.3.3/lib
+cd d
+cd ~/
+search down
+cd ~
+
+search wall
+cd /usr/share/rofi/
+sudo rm -R /usr/share/rofi
+search
+cd /mnt/umbesrv/
+cd  ~
+search downl
+cd /mnt/umbesrv/home/umbe/temp/

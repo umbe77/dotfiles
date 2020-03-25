@@ -1,0 +1,14 @@
+super + Return
+    alacritty
+
+super + l
+    slock
+
+super + d
+    dmenu_start_container
+
+super + D
+    dmenu_stop_container
+
+super + k
+    konga
