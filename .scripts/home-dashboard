@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+brave-browser --new-window \
+    https://www.icv-crew.org/forum/index.php?board=102.0 \
+    http://ddunlimited.net/viewforum.php?f=324 \
+    https://ilcorsaronero.pw/cat/1 \
+    http://umbesrv:32400/ \
+    http://umbesrv:18080/ &

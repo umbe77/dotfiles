@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+RUNNING_CONTAINERS=$(docker ps --format '{{.Names}}' | wc -l)
+
+[ $RUNNING_CONTAINERS -gt 0 ] && echo ""

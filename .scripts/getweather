@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+LOCATION=$1
+
+if [[  -n "$LOCATION" ]]; then
+   curl -s -k "https://wttr.in/$LOCATION" 
+fi

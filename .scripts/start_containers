@@ -1,0 +1,31 @@
+#!/usr/bin/env bash 
+
+choices=$(docker container ls -f 'status=exited' --format='{{json .}}' | jq -r '[.Names, .ID] | join(" ")' | rofi -dmenu -p "Start container" -i -multi-select)
+
+if [[ ! -z "${choices}" ]]; then
+    containers_not=$(echo -n -e "$choices" | awk 'BEGIN { ORS=" " }; {print $1}')
+    containers=$(echo -n -e "$choices" | awk '{print $1}')
+    
+    COUNT=$(echo $containers | wc -w)
+    CURRENT=1
+
+    while read -r container; do
+        VAL=$(echo "scale=3; $CURRENT / $COUNT" | bc -l)
+        PERCENT=$(echo "scale=0; $VAL * 100" | bc -l)
+        CURRENT=$(($CURRENT + 1))
+        echo "# Starting $container..."
+        sleep 0.1
+        echo "$PERCENT"
+        docker start $(echo -n -e "$container")
+    done <<< "$containers" |
+    zenity --progress \
+    --title="Docker Starting containers" \
+    --text="" \
+    --auto-close \
+    --width=300 \
+    --percentage=0 \
+    --no-cancel
+
+    notify-send -u normal "Docker:" "containers: $containers_not started"
+fi
+

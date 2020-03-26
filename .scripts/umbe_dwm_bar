@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+while true
+do
+	xsetroot -name "$(umbe_dwm_battery.sh)$(umbe_dwm_weather.sh)$(umbe_dwm_date.sh)"
+	sleep 60
+done

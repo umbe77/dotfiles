@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+
+refresh_cache() {
+    CITY=$(current_city) &&
+    curl -s -k http://wttr.in/$CITY?format=4 > $WEATHER_CACHE
+}
+
+
+REFRESH=$1
+
+WEATHER_DIR=$(dirname "$WEATHER_CACHE")
+
+[ ! -d $WEATHER_DIR ] &&
+    mkdir -p $WEATHER_DIR
+[ ! -f $WEATHER_CACHE ] &&
+    touch $WEATHER_CACHE
+
+file=$(stat -c %Y $WEATHER_CACHE)
+curr=$(date -d "now" +%s)
+TIMEDIFF=$(echo "$curr - $file" | bc -l)
+TTL=$(echo "60 * 60 * 6" | bc -l)
+
+[ -n "$REFRESH" ] || 
+[ $TIMEDIFF -gt $TTL ] && 
+refresh_cache
+
+echo "$(cat $WEATHER_CACHE)"

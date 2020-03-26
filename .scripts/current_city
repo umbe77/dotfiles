@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+echo -n "$(< $CURRENT_CITY_PATH)"
