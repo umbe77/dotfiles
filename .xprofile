@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+
+xbanish &
+
+xrdb -merge ~/.Xresources &
+
+numlockx &
+
+restorebg &
+
+xsetroot -cursor_name left_ptr &
+
+set_current_city 1 &
+
+#map CapsLock to Escape key
+setxkbmap -option caps:escape
+
+dunst &
+xcompmgr &
+
+xautolock -time 10 -locker slock &
+
+$HOME/.config/polybar/launch.sh
+
+sxhkd &
+
+blueman-applet &
+nm-applet &
+udiskie -A -t &
+
+set_current_city 1 &
+
+#map CapsLock to Escape key
+setxkbmap -option caps:escape
+
+dunst &
+xcompmgr &
+
+xautolock -time 10 -locker slock &
+
+$HOME/.config/polybar/launch.sh
+
+sxhkd &
+
+blueman-applet &
+nm-applet &
+udiskie -A -t &
