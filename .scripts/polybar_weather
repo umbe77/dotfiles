@@ -5,23 +5,33 @@ refresh_cache() {
     curl -s -k http://wttr.in/$CITY?format=4 > $WEATHER_CACHE
 }
 
+DEBUG=$2
 
+[ -n "$DEBUG" ] && echo "1" >> ~/tmp/log_polybar
 REFRESH=$1
 
 WEATHER_DIR=$(dirname "$WEATHER_CACHE")
+
+ [ -n "$DEBUG" ] && echo "1a" >> ~/tmp/log_polybar
 
 [ ! -d $WEATHER_DIR ] &&
     mkdir -p $WEATHER_DIR
 [ ! -f $WEATHER_CACHE ] &&
     touch $WEATHER_CACHE
 
+ [ -n "$DEBUG" ] && echo "2" >> ~/tmp/log_polybar
+
 file=$(stat -c %Y $WEATHER_CACHE)
 curr=$(date -d "now" +%s)
 TIMEDIFF=$(echo "$curr - $file" | bc -l)
 TTL=$(echo "60 * 60 * 6" | bc -l)
 
+ [ -n "$DEBUG" ] && echo "3" >> ~/tmp/log_polybar
+
 [ -n "$REFRESH" ] || 
 [ $TIMEDIFF -gt $TTL ] && 
 refresh_cache
+
+ [ -n "$DEBUG" ] && echo "4" >> ~/tmp/log_polybar
 
 echo "$(cat $WEATHER_CACHE)"

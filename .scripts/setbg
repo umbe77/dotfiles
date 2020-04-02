@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+bg="$HOME/.config/wallpaper/wal"
+
+[ -f "$1" ] && ln -sf  "$(realpath "$1")" "$bg" && notify-send -i "$bg" "Changing wallpaper..."
+
+wal -i $(realpath "$bg") -n -o wal-postrun
+
+xwallpaper --zoom "$bg"

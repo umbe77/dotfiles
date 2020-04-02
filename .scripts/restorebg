@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+wal -R
+
+xwallpaper --zoom "$HOME/.config/wallpaper/wal"
