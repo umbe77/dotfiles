@@ -1,4 +1,5 @@
+#/bin/sh
 
-xbanish &
+[ -f ~/.xprofile ] && . ~/.xprofile
 
 exec ssh-agent bspwm

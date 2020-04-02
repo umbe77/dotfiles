@@ -137,4 +137,4 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
-@import "/usr/share/rofi/themes/glue_pro_blue.rasi"
+@import "~/.cache/wal/colors-rofi-dark.rasi"

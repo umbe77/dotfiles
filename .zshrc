@@ -1,8 +1,29 @@
-#bindkey
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
+## Keybindings section
+bindkey -e
+bindkey '^[[7~' beginning-of-line                               # Home key
+bindkey '^[[H' beginning-of-line                                # Home key
+if [[ "${terminfo[khome]}" != "" ]]; then
+  bindkey "${terminfo[khome]}" beginning-of-line                # [Home] - Go to beginning of line
+fi
+bindkey '^[[8~' end-of-line                                     # End key
+bindkey '^[[F' end-of-line                                     # End key
+if [[ "${terminfo[kend]}" != "" ]]; then
+  bindkey "${terminfo[kend]}" end-of-line                       # [End] - Go to end of line
+fi
+bindkey '^[[2~' overwrite-mode                                  # Insert key
+bindkey '^[[3~' delete-char                                     # Delete key
+bindkey '^[[C'  forward-char                                    # Right key
+bindkey '^[[D'  backward-char                                   # Left key
+bindkey '^[[5~' history-beginning-search-backward               # Page up key
+bindkey '^[[6~' history-beginning-search-forward                # Page down key
 
-# Set up the prompt
+# Navigate words with ctrl+arrow keys
+bindkey '^[Oc' forward-word                                     #
+bindkey '^[Od' backward-word                                    #
+bindkey '^[[1;5D' backward-word                                 #
+bindkey '^[[1;5C' forward-word                                  #
+bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
+bindkey '^[[Z' undo                                             # Shift+tab undo last action# Set up the prompt
 
 autoload -Uz promptinit
 promptinit
@@ -13,7 +34,7 @@ promptinit
 setopt histignorealldups sharehistory
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.dotnet/tools:$HOME/.scripts:$HOME/bin:/snap/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.gem/ruby/2.7.0/bin:$HOME/.dotnet/tools:$HOME/.scripts:$HOME/bin:/snap/bin:/usr/local/bin:$PATH
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export XDG_CONFIG_HOME=$HOME/.config
 export TZ=Europe/Rome
@@ -23,6 +44,19 @@ export CURRENT_CITY_PATH=$HOME/.cache/umbe/current_city
 export WEATHER_CACHE=$HOME/.cache/umbe/weather
 
 export TERMINAL=alacritty
+export BROWSER=chromium
+# Use emacs keybindings even if our EDITOR is set to vi
+setopt correct                                                  # Auto correct mistakes
+setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
+setopt nocaseglob                                               # Case insensitive globbing
+setopt rcexpandparam                                            # Array expension with parameters
+setopt nocheckjobs                                              # Don't warn about running processes when exiting
+setopt numericglobsort                                          # Sort filenames numerically when it makes sense
+setopt nobeep                                                   # No beep
+setopt appendhistory                                            # Immediately append history instead of overwriting
+setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
+setopt autocd                                                   # if only directory path is entered, cd there.
+
 # Use emacs keybindings even if our EDITOR is set to vi
 #bindkey -e
 
@@ -30,7 +64,6 @@ export TERMINAL=alacritty
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
-
 
 # Use modern completion system
 autoload -Uz compinit
@@ -54,10 +87,13 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+# autocompletion for colorls
+source $(dirname $(gem which colorls))/tab_complete.sh
+
 #load aliases
 source ~/.aliasrc
 
-alias dotfiles='/usr/bin/git --git-dir=/home/rughi/.dotfiles/ --work-tree=/home/rughi'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 [ -f ~/.config/colorls/colorls.sh ] && source ~/.config/colorls/colorls.sh
 
@@ -76,5 +112,8 @@ alias dotfiles='/usr/bin/git --git-dir=/home/rughi/.dotfiles/ --work-tree=/home/
 [ -f ~/.config/zsh/plugins/docker/_docker ] && source ~/.config/zsh/plugins/docker/_docker
 
 [ -f ~/.config/zsh/bindkey.zsh ] && source ~/.config/zsh/bindkey.zsh
+
+source ~/.cache/wal/colors.sh
+#cat ~/.cache/wal/sequences
 
 pfetch

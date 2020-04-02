@@ -17,15 +17,24 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #222
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+background = ${xrdb:color0:#222}
+;background = #222
+;background-alt = #444
+background-alt = ${xrdb:color1}
+foreground = ${xrdb:color7:#222}
+;foreground = #dfdfdf
+;foreground-alt = #555
+foreground-alt = ${xrdb:color4}
+primary = ${xrdb:color1}
+;primary = #ffb52a
+secondary = ${xrdb:color2}
+;secondary = #e60053
+alert = ${xrdb:color3}
+;alert = #bd2c40
+magenta = #9f78e1
+
+ws_yellow = #ffb52a
+ws_blue = #0a6cf5
 
 [bar/main]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -113,11 +122,11 @@ type = internal/bspwm
 
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-underline= ${colors.ws_yellow}
 label-focused-padding = 1
 
 label-occupied = %index%
-label-occupied-underline = #0a6cf5
+label-occupied-underline = ${colors.ws_blue}
 label-occupied-padding = 1
 
 label-urgent = %index%!
@@ -213,8 +222,8 @@ format-prefix-foreground = ${colors.foreground}
 format-prefix-font = 2
 format-background = ${colors.background-alt}
 format-padding = 2
-format-underline = #f90000
-label = %percentage-cores:2%%
+format-underline = ${colors.magenta}
+label = %percentage-cores%
 
 [module/memory]
 type = internal/memory
@@ -225,7 +234,7 @@ format-prefix-font = 2
 format-prefix-foreground = ${colors.foreground}
 format-background = ${colors.background-alt}
 format-padding = 2
-format-underline = #4bffdc
+format-underline = ${colors.magenta}
 label = %percentage_used%%
 
 [module/wlan]
@@ -234,7 +243,7 @@ interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+format-connected-underline = ${colors.magenta}
 label-connected = %essid%
 
 format-disconnected =
@@ -255,12 +264,15 @@ format-connected-padding = 2
 
 [module/eth]
 type = internal/network
-interface = enp0s31f6
+interface = eno1
 interval = 3.0
 
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
+format-connected-underline = ${colors.magenta}
+format-connected-prefix = " "
+format-connected-font = "2"
+format-connected-prefix-foreground = ${colors.foreground}
+format-connected-padding = 2
+format-connected-background = ${colors.background-alt}
 label-connected = %local_ip%
 
 format-disconnected =
@@ -284,7 +296,7 @@ format-prefix-foreground = ${colors.foreground}
 format-prefix-padding = 1
 format-background = ${colors.background-alt}
 format-padding = 2
-format-underline = #0a6cf5
+format-underline = ${colors.magenta}
 
 label = %date% %time%
 
@@ -294,7 +306,7 @@ type = internal/pulseaudio
 format-volume = <ramp-volume> <label-volume>
 label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
-label-volume-underline = #9f78e1
+label-volume-underline = ${colors.magenta}
 label-muted-underline = ${self.label-volume-underline}
 ;label-volume-font = 2
 
@@ -332,8 +344,8 @@ ramp-volume-font = 2
 [module/alsa]
 type = internal/alsa
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
+format-volume = <label-volume> 
+label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
@@ -364,7 +376,7 @@ adapter = AC
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = ${colors.magenta}
 format-charging-font = 2
 format-charging-background = ${colors.background-alt}
 format-charging-padding = 1
@@ -416,7 +428,7 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-underline = ${colors.magenta}
 format-background = ${colors.background-alt}
 format-padding = 2
 format-warn = <ramp> <label-warn>
@@ -469,13 +481,13 @@ type = custom/script
 exec = polybar_weather
 
 format = <label>
-format-font = 1
 format-forground = ${colors.foreground}
 format-background = ${colors.background-alt}
-format-underline = #f50a4d
+format-underline = ${colors.magenta}
 format-padding = 2
 
 label = %output%
+
 
 click-left = polybar_weather_click
 
@@ -487,7 +499,7 @@ format = <label>
 format-font = 1 
 format-foreground = #0a6cf5
 format-background = ${colors.background-alt}
-format-underline = #9f78e1 
+format-underline = ${colors.magenta}
 format-padding = 2 
 
 label = %output%

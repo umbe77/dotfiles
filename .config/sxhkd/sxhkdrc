@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-    $TERMINAL
+    tabbed -r 2 $TERMINAL --embed ''
 # program launcher
 super + p 
 	dmenu_run
@@ -129,10 +129,10 @@ alt + k
     konga
 
 alt + b
-    brave-browser
+    $BROWSER
 
 super + e
-    $TERMINAL -e ranger
+    $TERMINAL -t Ranger -e explorer
 
 alt + s
     rofi -show ssh

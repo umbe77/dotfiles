@@ -12,7 +12,6 @@ search w
 Q
 search devellkl
 set vcs_aware true
-search wal
 shell slock
 search scri
 search dow
@@ -28,12 +27,19 @@ cd d
 cd ~/
 search down
 cd ~
-
-search wall
 cd /usr/share/rofi/
 sudo rm -R /usr/share/rofi
 search
-cd /mnt/umbesrv/
-cd  ~
 search downl
+cd  ~
+cd /mnt/umbesrv/
 cd /mnt/umbesrv/home/umbe/temp/
+shell wal -i wallpapers/man
+
+cd .config
+search wall
+shell wal -i %S
+shell wall -i %s
+search wal
+search contin
+shell wal -i %s

@@ -2,6 +2,8 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'ap/vim-css-color'
+
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
