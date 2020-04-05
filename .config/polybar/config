@@ -498,13 +498,14 @@ type = custom/script
 exec = polybar_docker
 
 format = <label>
-format-font = 1 
+format-font = 1
 format-foreground = #0a6cf5
 format-background = ${colors.background-alt}
 format-underline = ${colors.magenta}
-format-padding = 2 
+;format-padding = 2 
 
 label = %output%
+label-padding = 2
 
 click-left = stop_containers
 

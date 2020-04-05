@@ -27,5 +27,5 @@ sxhkd &
 
 blueman-applet &
 nm-applet &
-udiskie &
+udiskie -t -n &
 
