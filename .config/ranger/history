@@ -40,6 +40,8 @@ cd .config
 search wall
 shell wal -i %S
 shell wall -i %s
-search wal
 search contin
 shell wal -i %s
+search wal
+shell setbg %s
+shell setbg %f
