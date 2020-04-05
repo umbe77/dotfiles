@@ -13,8 +13,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'dracula/vim', { 'as': 'dracula' }
 "Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
+"Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -42,7 +43,8 @@ set completeopt=longest,menuone,noinsert,noselect,preview
 
 "set colorscheme
 "colorscheme gruvbox
-colorscheme onedark
+"colorscheme onedark
+colorscheme dracula
 set background=dark
 "end colorscheme
 

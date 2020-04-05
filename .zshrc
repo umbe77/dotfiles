@@ -114,6 +114,6 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 [ -f ~/.config/zsh/bindkey.zsh ] && source ~/.config/zsh/bindkey.zsh
 
 source ~/.cache/wal/colors.sh
-#cat ~/.cache/wal/sequences
+cat ~/.cache/wal/sequences
 
 pfetch
