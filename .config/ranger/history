@@ -45,3 +45,5 @@ shell wal -i %s
 search wal
 shell setbg %s
 shell setbg %f
+cd /data
+cd  /

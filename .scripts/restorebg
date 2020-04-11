@@ -2,4 +2,4 @@
 
 wal -R
 
-xwallpaper --zoom "$HOME/.config/wallpaper/wal"
+nitrogen --set-scaled "$HOME/.config/wallpaper/wal"

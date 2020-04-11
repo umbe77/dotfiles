@@ -45,6 +45,7 @@ export WEATHER_CACHE=$HOME/.cache/umbe/weather
 
 export TERMINAL=alacritty
 export BROWSER=chromium
+export EDITOR=nvim
 # Use emacs keybindings even if our EDITOR is set to vi
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
@@ -117,3 +118,8 @@ source ~/.cache/wal/colors.sh
 cat ~/.cache/wal/sequences
 
 pfetch
+
+source /home/roberto/.config/broot/launcher/bash/br
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

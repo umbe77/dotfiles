@@ -6,4 +6,4 @@ bg="$HOME/.config/wallpaper/wal"
 
 wal -i $(realpath "$bg") -n -o wal-postrun
 
-xwallpaper --zoom "$bg"
+nitrogen --set-scaled "$bg"
