@@ -1,6 +1,3 @@
-search /Xresources
-set path+=**
-find Xresources
 open_with 
 search X11
 shell  %s
@@ -37,13 +34,17 @@ cd /mnt/umbesrv/home/umbe/temp/
 shell wal -i wallpapers/man
 
 cd .config
-search wall
 shell wal -i %S
 shell wall -i %s
 search contin
 shell wal -i %s
 search wal
 shell setbg %s
-shell setbg %f
 cd /data
 cd  /
+search wa
+search wall
+search wallpa
+search bg
+shell setbg %f
+shell fzf

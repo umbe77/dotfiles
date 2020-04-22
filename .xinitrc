@@ -1,5 +1,17 @@
 #/bin/sh
 
+if [ -e $WM ]; then
+    WM="bspwm"
+    export WM
+fi
+
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-exec bspwm 
+case $WM in
+    awesome)
+        exec awesome
+        ;;
+    *)
+        exec bspwm
+        ;;
+esac

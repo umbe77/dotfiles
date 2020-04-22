@@ -1,5 +1,5 @@
 ## Keybindings section
-bindkey -e
+bindkey -v
 bindkey '^[[7~' beginning-of-line                               # Home key
 bindkey '^[[H' beginning-of-line                                # Home key
 if [[ "${terminfo[khome]}" != "" ]]; then
@@ -31,6 +31,8 @@ promptinit
 #theme
 [ -f ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh ] && source ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh
 
+spaceship_vi_mode_enable
+
 setopt histignorealldups sharehistory
 
 # If you come from bash you might have to change your $PATH.
@@ -44,8 +46,13 @@ export CURRENT_CITY_PATH=$HOME/.cache/umbe/current_city
 export WEATHER_CACHE=$HOME/.cache/umbe/weather
 
 export TERMINAL=alacritty
-export BROWSER=chromium
 export EDITOR=nvim
+
+if [ -f ~/.config/myconfigs/variables ]; then
+    source ~/.config/myconfigs/variables
+else
+    export BROWSER=chromium
+fi
 # Use emacs keybindings even if our EDITOR is set to vi
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
@@ -100,6 +107,11 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export FZF_DEFAULT_OPTS='
+--color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C
+--color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B
+'
+
 [ -f ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 [ -f ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -114,8 +126,8 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 [ -f ~/.config/zsh/bindkey.zsh ] && source ~/.config/zsh/bindkey.zsh
 
-source ~/.cache/wal/colors.sh
-cat ~/.cache/wal/sequences
+#source ~/.cache/wal/colors.sh
+#cat ~/.cache/wal/sequences
 
 pfetch
 

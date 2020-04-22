@@ -4,6 +4,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'ap/vim-css-color'
 
+Plug 'sheerun/vim-polyglot'
+
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -14,8 +16,9 @@ Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'dracula/vim', { 'as': 'dracula' }
-"Plug 'morhetz/gruvbox'
-"Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
+Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -44,9 +47,11 @@ set completeopt=longest,menuone,noinsert,noselect,preview
 "set colorscheme
 "colorscheme gruvbox
 "colorscheme onedark
-colorscheme dracula
+"colorscheme dracula
+colorscheme nord
 set background=dark
-"end colorscheme
+
+"let g:gruvbox_contrast_dark = "hard"
 
 set fileencoding=utf-8
 set encoding=utf-8
@@ -73,7 +78,10 @@ inoremap <expr> <Tab> pumvisible() ? '<C-n>' :
 "Plugin configurations
 
 "Airline configurations
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 "OmniSharp + asyncomplete + ale
 let g:asyncomplete_auto_popup = 1

@@ -5,11 +5,12 @@ xbanish &
 
 xrdb -merge ~/.Xresources &
 
-numlockx &
+#numlockx &
 
-restorebg &
+restorebg & 
 
 xsetroot -cursor_name left_ptr &
+setxkbmap it
 
 set_current_city 1 &
 
@@ -17,13 +18,17 @@ set_current_city 1 &
 setxkbmap -option caps:escape &
 
 dunst &
-xcompmgr &
+#xcompmgr &
+compton &
 
-xautolock -time 10 -locker slock &
+xautolock -time 10 -locker locker &
 
-$HOME/.config/polybar/launch.sh &
-
-sxhkd &
+if [ "$WM" == "bspwm" ]; then
+    $HOME/.config/polybar/launch.sh &
+    sxhkd $HOME/.config/sxhkd/bspwm &
+else
+    sxhkd &
+fi
 
 blueman-applet &
 nm-applet &
