@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-echo "$@" >> ~/.logs/ask-pass.log
-echo "=====================" >> ~/.logs/ask-pass.log
+#echo "$@" >> ~/.logs/ask-pass.log
+#echo "=====================" >> ~/.logs/ask-pass.log
 
-zenity --password --title="sudo password prompt" --timeout=10
+#zenity --password --title="$1" --timeout=10
+zenity --forms --title="ASK Password" \
+                --text="$1" \
+                --add-password= \
+                --timeout=10

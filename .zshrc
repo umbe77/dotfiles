@@ -101,8 +101,6 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 #load aliases
 source ~/.aliasrc
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
 [ -f ~/.config/colorls/colorls.sh ] && source ~/.config/colorls/colorls.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
