@@ -24,10 +24,14 @@ bindkey '^[[1;5D' backward-word                                 #
 bindkey '^[[1;5C' forward-word                                  #
 bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                             # Shift+tab undo last action# Set up the prompt
-
 autoload -Uz promptinit
 promptinit
 #prompt adam1
+
+## Edit command line
+autoload -U edit-command-line ; zle -N edit-command-line
+bindkey -M vicmd ' ' edit-command-line
+
 #theme
 [ -f ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh ] && source ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh
 
@@ -95,13 +99,8 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-# autocompletion for colorls
-source $(dirname $(gem which colorls))/tab_complete.sh
-
 #load aliases
 source ~/.aliasrc
-
-[ -f ~/.config/colorls/colorls.sh ] && source ~/.config/colorls/colorls.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -126,6 +125,8 @@ export FZF_DEFAULT_OPTS='
 
 #source ~/.cache/wal/colors.sh
 #cat ~/.cache/wal/sequences
+
+test -r "~/.config/myconfigs/dir_colors" && eval $(dircolors ~/.config/myconfigs/dir_colors)
 
 pfetch
 

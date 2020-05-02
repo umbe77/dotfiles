@@ -18,6 +18,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- MyPlugins
+local umbe_ui = require('umbe.utils.ui')
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -47,6 +50,7 @@ end
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "xresources/theme.lua")
 beautiful.font = "JetBrainsMono Nerd Font 10"
+beautiful.useless_gap = 0
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
@@ -63,7 +67,7 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.tile,
-    awful.layout.suit.floating,
+    -- awful.layout.suit.floating,
     -- awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
@@ -71,7 +75,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
-    -- awful.layout.suit.max,
+    awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
     -- awful.layout.suit.corner.nw,
@@ -109,6 +113,9 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+
+local myweather = require("umbe.widgets.weather")
+local pulse = require('pulseaudio_widget')
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -197,24 +204,35 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 28 })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 20 })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
+            spacing = 5,
 --            mylauncher,
+            s.mylayoutbox,
             s.mytaglist,
 --            s.mypromptbox,
-            s.mylayoutbox,
         },
-        s.mytasklist, -- Middle widget
+        {
+            layout = wibox.layout.fixed.horizontal,
+            spacing = 5,
+            s.mytasklist
+        },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
---            mykeyboardlayout,
-            wibox.widget.systray(),
+            spacing = 5,
+            wibox.widget.textbox("<b>[</b>"),
+            pulse,
+            wibox.widget.textbox("<b>|</b>"),
+            myweather,
+            wibox.widget.textbox("<b>|</b>"),
             mytextclock,
+            wibox.widget.textbox("<b>]</b>"),
+            wibox.widget.systray(),
         },
     }
 end)
@@ -253,6 +271,9 @@ globalkeys = gears.table.join(
     ),
     --awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               --{description = "show main menu", group = "awesome"}),
+    -- Toggle gaps
+    awful.key({ modkey, "Shift" }, "g", function () umbe_ui:toggle_gaps() end,
+              {description = "Toggle useless gaps on / off", group = "client"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,

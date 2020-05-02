@@ -13,14 +13,11 @@ super + Return
 super + p 
 	dmenu_run_colors
 
-alt + l
-    slock
+alt + 0
+    locker
 
 super + {_,shift +} d
     {start_containers,stop_containers}
-
-alt + k
-    konga
 
 alt + b
     $BROWSER

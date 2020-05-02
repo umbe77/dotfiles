@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
+if [[ -n "`which luarocks 2>/dev/null`" ]]; then
+    eval `luarocks path --bin`
+fi
 
 xbanish &
+
+start-pulseaudio-x11 &
 
 xrdb -merge ~/.Xresources &
 

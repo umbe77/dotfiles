@@ -1,3 +1,10 @@
+"
+"                         _   __ (_)____ ___   _____ _____
+"                        | | / // // __ `__ \ / ___// ___/
+"                      _ | |/ // // / / / / // /   / /__
+"                     (_)|___//_//_/ /_/ /_//_/    \___/
+"
+
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
@@ -36,6 +43,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 

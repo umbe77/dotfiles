@@ -30,7 +30,6 @@ search
 search downl
 cd  ~
 cd /mnt/umbesrv/
-cd /mnt/umbesrv/home/umbe/temp/
 shell wal -i wallpapers/man
 
 cd .config
@@ -43,8 +42,9 @@ shell setbg %s
 cd /data
 cd  /
 search wa
-search wall
 search wallpa
 search bg
-shell setbg %f
 shell fzf
+search wall
+shell setbg %f
+cd /mnt/umbesrv/home/umbe/temp/

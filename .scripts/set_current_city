@@ -8,7 +8,7 @@ CURRENT_CITY_DIR=$(dirname "$CURRENT_CITY_PATH")
     mkdir -p $CURRENT_CITY_DIR
 [ ! -f $CURRENT_CITY_PATH ] &&
     touch $CURRENT_CITY_PATH &&
-NEW="1"
+    NEW="1"
 
 [[ $NEW = "1" || $REFRESH = "1" ]] &&
     curl -s https://ipinfo.io | jq -r '.city' > $CURRENT_CITY_PATH
