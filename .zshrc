@@ -25,13 +25,10 @@ bindkey '^[[1;5C' forward-word                                  #
 bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                             # Shift+tab undo last action# Set up the prompt
 fpath+=$HOME/.config/zsh/pure
-autoload -Uz promptinit; promptinit
-#prompt pure
-#PURE_GIT_PULL=0
-#PURE_PROMPT_SYMBOL='[I] >'
-#PURE_PROMPT_VICMD_SYMBOL='[N] >'
-#zstyle :prompt:pure:prompt:success color 'green'
+autoload -Uz promptinit
+promptinit
 #prompt adam1
+
 eval "$(starship init zsh)"
 ## Edit command line
 autoload -U edit-command-line ; zle -N edit-command-line
