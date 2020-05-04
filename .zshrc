@@ -24,18 +24,23 @@ bindkey '^[[1;5D' backward-word                                 #
 bindkey '^[[1;5C' forward-word                                  #
 bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                             # Shift+tab undo last action# Set up the prompt
-autoload -Uz promptinit
-promptinit
+fpath+=$HOME/.config/zsh/pure
+autoload -Uz promptinit; promptinit
+#prompt pure
+#PURE_GIT_PULL=0
+#PURE_PROMPT_SYMBOL='[I] >'
+#PURE_PROMPT_VICMD_SYMBOL='[N] >'
+#zstyle :prompt:pure:prompt:success color 'green'
 #prompt adam1
-
+eval "$(starship init zsh)"
 ## Edit command line
 autoload -U edit-command-line ; zle -N edit-command-line
 bindkey -M vicmd ' ' edit-command-line
 
 #theme
-[ -f ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh ] && source ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh
+#[ -f ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh ] && source ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh
 
-spaceship_vi_mode_enable
+#spaceship_vi_mode_enable
 
 setopt histignorealldups sharehistory
 
