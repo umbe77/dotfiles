@@ -51,7 +51,11 @@ export SSH_ASKPASS=$HOME/.scripts/ssh-ask-passwd
 export CURRENT_CITY_PATH=$HOME/.cache/umbe/current_city
 export WEATHER_CACHE=$HOME/.cache/umbe/weather
 
-export TERMINAL=alacritty
+TERMINAL=st
+command -v alacritty > /dev/null && TERMINAL=alacritty
+
+export TERMINAL
+
 export EDITOR=nvim
 
 if [ -f ~/.config/myconfigs/variables ]; then
