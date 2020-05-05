@@ -1,7 +1,7 @@
 #/bin/sh
 
 if [ -e $WM ]; then
-    WM="bspwm"
+    WM="awesome"
     export WM
 fi
 
