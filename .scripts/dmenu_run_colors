@@ -1,0 +1,5 @@
+#!/bin/sh
+
+source "$HOME/.cache/wal/colors.sh"
+
+dmenu_path | dmenu -nb $background -nf $foreground -sb $color1 -sf $foreground -nsb $background -nsf $color6 -ssb $color1 -ssf $color6 "$@" | ${SHELL-:"/bin/sh"} &
