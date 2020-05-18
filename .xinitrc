@@ -1,17 +1,15 @@
 #/bin/sh
 
-if [ -e $WM ]; then
-    WM="awesome"
-    export WM
-fi
-
 [ -f ~/.xprofile ] && . ~/.xprofile
 
 case $WM in
-    awesome)
-        exec awesome
+    qtile)
+        exec qtile
+        ;;
+    bspwm)
+        exec bspwm
         ;;
     *)
-        exec bspwm
+        exec awsome 
         ;;
 esac

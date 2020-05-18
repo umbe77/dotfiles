@@ -1,5 +1,3 @@
-open_with 
-search X11
 shell  %s
 shell mkdir develop %s
 search .vim
@@ -27,7 +25,6 @@ cd ~
 cd /usr/share/rofi/
 sudo rm -R /usr/share/rofi
 search
-search downl
 cd  ~
 cd /mnt/umbesrv/
 shell wal -i wallpapers/man
@@ -45,6 +42,9 @@ search wa
 search wallpa
 search bg
 shell fzf
-search wall
-shell setbg %f
+search downl
+ll
 cd /mnt/umbesrv/home/umbe/temp/
+search wall
+search gian
+shell setbg %f

@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
-cat ~/.cache/wal/sequences
+cur_terminal=$1
+
+if [[ "$cur_terminal" != "st" ]] ; then
+    cat ~/.cache/wal/sequences
+fi
 
 ranger
