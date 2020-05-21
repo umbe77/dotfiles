@@ -3,13 +3,13 @@
 [ -f ~/.xprofile ] && . ~/.xprofile
 
 case $WM in
-    qtile)
-        exec qtile
+    awesome)
+        exec awesome
         ;;
     bspwm)
         exec bspwm
         ;;
     *)
-        exec awsome 
+        exec qtile 
         ;;
 esac
