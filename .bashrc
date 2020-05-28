@@ -32,7 +32,7 @@ readonly () {
     return $previuosReturn
 }
 
-PS1='\n$(readonly)\[\e[96m\]\w\[\e[m\]\n \[$(promptstatus)\]> \[\e[m\]'
+PS1='\n$(readonly)\[\e[96m\]\w\[\e[m\]\n \[\e[34m\](\h)\[\e[m\]\[$(promptstatus)\]> \[\e[m\]'
 
 
 export PS1
