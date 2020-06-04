@@ -1,5 +1,5 @@
-.config/ranger/history
-.config/ranger/bookmarks
+.config/ranger/history/
+.config/ranger/bookmarks/
 .fzf.sh
 
 # Created by https://www.gitignore.io/api/python
