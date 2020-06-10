@@ -40,8 +40,15 @@ mod = "mod4"
 
 keys = [
     # Switch between windows in current stack pane
-    Key([mod], "k", lazy.layout.down()),
-    Key([mod], "j", lazy.layout.up()),
+    Key([mod], "h", lazy.layout.left()),
+    Key([mod], "j", lazy.layout.down()),
+    Key([mod], "k", lazy.layout.up()),
+    Key([mod], "l", lazy.layout.right()),
+
+    Key([mod], "i", lazy.layout.grow()),
+    Key([mod], "s", lazy.layout.shrink()),
+    Key([mod], "n", lazy.layout.normalize()),
+    Key([mod], "m", lazy.layout.maximize()),
 
     Key([mod], "f", lazy.window.toggle_floating()),
     # Move windows up or down in current stack
@@ -90,14 +97,14 @@ layoutConfigs = dict(
 )
 
 layouts = [
-    layout.Tile(ratio=0.5,add_on_top=False,add_after_last=True, **layoutConfigs),
+    layout.MonadTall(**layoutConfigs),
+    layout.Tile(ratio=0.5, add_on_top=False, add_after_last=True, **layoutConfigs),
     layout.Max(**layoutConfigs),
     #layout.Stack(num_stacks=2),
     # Try more layouts by unleashing below layouts.
     # layout.Bsp(),
     # layout.Columns(),
     # layout.Matrix(),
-    # layout.MonadTall(),
     # layout.MonadWide(),
     # layout.RatioTile(),
     layout.TreeTab(**layoutConfigs),
@@ -106,7 +113,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='JetBrainsMono Nerd Font',
+    font='Fira Code',
     fontsize=12,
     padding=3,
 )
