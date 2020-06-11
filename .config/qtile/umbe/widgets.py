@@ -12,7 +12,7 @@ class ShellScript(base.ThreadedPollText):
 
     def poll(self):
         return self._run_script()
-    
+
     def _run_script(self):
         script_path = os.path.expanduser(self.script)
 

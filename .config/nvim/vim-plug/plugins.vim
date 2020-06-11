@@ -46,6 +46,12 @@ Plug 'liuchengxu/vim-which-key'
 " Intellisense
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Hskell Support
+Plug 'neovimhaskell/haskell-vim'
+
+" Hskell Hilint
+Plug 'alx741/vim-hindent'
+
 call plug#end()
 
 autocmd VimEnter *

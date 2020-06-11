@@ -12,20 +12,16 @@ syntax enable
 
 set completeopt=longest,menuone,noinsert,noselect,preview
 
-"set colorscheme
-"colorscheme gruvbox
-"colorscheme onedark
-"colorscheme dracula
-"colorscheme nord
 set background=dark
-
-"let g:gruvbox_contrast_dark = "hard"
 
 set fileencoding=utf-8
 set encoding=utf-8
 
 set path+=**
-set number relativenumber
+set number
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+
 set hidden
 set tabstop=4 shiftwidth=4 expandtab "tab equals to 4 char
 set backspace=indent,eol,start
