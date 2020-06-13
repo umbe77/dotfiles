@@ -43,6 +43,9 @@ Plug 'voldikss/vim-floaterm'
 " See what keys do like in emacs
 Plug 'liuchengxu/vim-which-key'
 
+" dotnet support
+Plug 'OmniSharp/omnisharp-vim'
+
 " Intellisense
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -51,6 +54,8 @@ Plug 'neovimhaskell/haskell-vim'
 
 " Hskell Hilint
 Plug 'alx741/vim-hindent'
+
+Plug 'uarun/vim-protobuf'
 
 call plug#end()
 

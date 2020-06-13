@@ -23,4 +23,5 @@ else
     source $HOME/.config/nvim/plug-config/vim-rooter.vim
     source $HOME/.config/nvim/plug-config/coc.vim
     source $HOME/.config/nvim/keys/which-key.vim
+    source $HOME/.config/nvim/plug-config/omnisharp.vim
 endif
