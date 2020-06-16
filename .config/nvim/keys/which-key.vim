@@ -33,6 +33,7 @@ let g:which_key_map['S'] = [ ':SSave'                     , 'save session' ]
 let g:which_key_map['T'] = [ ':Rg'                        , 'search text' ]
 let g:which_key_map['v'] = [ '<C-W>v'                     , 'split right']
 let g:which_key_map['W'] = [ 'w'                          , 'write' ]
+let g:which_key_map['e'] = [ ':CocCommand explorer'       , 'explorer' ]
 
 
 " b is for buffer

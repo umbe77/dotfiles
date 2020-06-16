@@ -4,6 +4,8 @@ if [[ -n "`which luarocks 2>/dev/null`" ]]; then
     eval `luarocks path --bin`
 fi
 
+~/.screenlayout/umbedesk.sh
+
 unclutter -keystroke &
 
 start-pulseaudio-x11 &

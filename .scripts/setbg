@@ -8,4 +8,5 @@ lock_bg="$HOME/.config/wallpaper/lock.png"
 
 wal -i $(realpath "$bg") -n -s -t -o wal-postrun
 
-nitrogen --set-scaled "$bg"
+nitrogen --head=0 --set-scaled "$bg"
+nitrogen --head=1 --set-scaled "$bg"

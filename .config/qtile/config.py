@@ -24,6 +24,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+from Xlib import display as xdisplay
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.lazy import lazy
 from libqtile import layout, bar, widget
@@ -35,6 +36,35 @@ from umbe.weather import Weather
 
 import xrp
 xrdb = xrp.parse_file('.cache/wal/colors.Xresources', encoding='UTF8')
+
+# this import requires python-xlib to be installed
+
+
+def get_num_monitors():
+    num_monitors = 0
+    try:
+        display = xdisplay.Display()
+        screen = display.screen()
+        resources = screen.root.xrandr_get_screen_resources()
+
+        for output in resources.outputs:
+            monitor = display.xrandr_get_output_info(
+                output, resources.config_timestamp)
+            preferred = False
+            if hasattr(monitor, "preferred"):
+                preferred = monitor.preferred
+            elif hasattr(monitor, "num_preferred"):
+                preferred = monitor.num_preferred
+            if preferred:
+                num_monitors += 1
+    except Exception as e:
+        # always setup at least one monitor
+        return 1
+    else:
+        return num_monitors
+
+
+num_monitors = get_num_monitors()
 
 mod = "mod4"
 
@@ -74,17 +104,52 @@ keys = [
 
     Key([mod, "control"], "r", lazy.restart()),
     Key([mod, "control"], "q", lazy.shutdown()),
+    Key([mod], "period", lazy.next_screen()),
+    Key([mod], "comma", lazy.prev_screen()),
+    # Key([mod, "shift"], "period", lazy.window.toscreen(1)),
+    # Key([mod, "shift"], "comma", lazy.window.toscreen(0)),
 ]
 
-groups = [Group(i) for i in "1234567890"]
+#groups = [Group(i) for i in "1234567890"]
+groups = [
+    Group("1", label="1"),
+    Group("2", label="2"),
+    Group("3", label="3"),
+    Group("4", label="4"),
+    Group("5", label="5"),
+    Group("6", label="6"),
+    Group("7", label="7"),
+    Group("8", label="8"),
+    Group("9", label="9"),
+    Group("0", label="0"),
+    Group("01", label="01"),
+    Group("02", label="02"),
+    Group("03", label="03"),
+    Group("04", label="04"),
+    Group("05", label="05"),
+    Group("06", label="06"),
+    Group("07", label="07"),
+    Group("08", label="08"),
+    Group("09", label="09"),
+    Group("00", label="00"),
+]
 
-for i in groups:
+for i in "1234567890":
     keys.extend([
         # mod1 + letter of group = switch to group
-        Key([mod], i.name, lazy.group[i.name].toscreen()),
-
+        Key([mod], i,
+            lazy.to_screen(0),
+            lazy.group[i].toscreen(toggle=False)),
+        Key(["mod1"], i,
+            lazy.to_screen(1),
+            lazy.group['0' + i].toscreen(toggle=False)),
         # mod1 + shift + letter of group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True)),
+        Key([mod, "shift"], i,
+            lazy.window.togroup(i),
+            lazy.to_screen(0)),
+        Key(["mod1", "shift"], i,
+            lazy.window.togroup("0" + i),
+            lazy.to_screen(1)),
         # Or, use below if you prefer not to switch to that group.
         # # mod1 + shift + letter of group = move focused window to group
         # Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
@@ -98,17 +163,24 @@ layoutConfigs = dict(
 
 layouts = [
     layout.MonadTall(**layoutConfigs),
-    layout.Tile(ratio=0.5, add_on_top=False, add_after_last=True, **layoutConfigs),
+    layout.Tile(ratio=0.5, add_on_top=False,
+                add_after_last=True, **layoutConfigs),
     layout.Max(**layoutConfigs),
-    #layout.Stack(num_stacks=2),
+    # layout.Stack(num_stacks=2),
     # Try more layouts by unleashing below layouts.
     # layout.Bsp(),
     # layout.Columns(),
     # layout.Matrix(),
     # layout.MonadWide(),
     # layout.RatioTile(),
-    layout.TreeTab(**layoutConfigs),
-    # layout.VerticalTile(),
+    layout.TreeTab(
+        bg_color=xrdb.resources['*background'],
+        active_bg=xrdb.resources['*color4'],
+        inactive_bg=xrdb.resources['*color1'],
+        active_fg=xrdb.resources['*foreground'],
+        inactive_fg=xrdb.resources['*foreground'],
+        **layoutConfigs),
+    # layoutVerticalTile(),
     # layout.Zoomy(),
 ]
 
@@ -133,8 +205,10 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(),
-                widget.GroupBox(**groupbox_config),
+                widget.GroupBox(visible_groups=[
+                                '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], **groupbox_config),
                 widget.WindowName(),
+                widget.TextBox(text="[M 1]"),
                 widget.TextBox(text='['),
                 widget.PulseVolume(),
                 widget.Sep(),
@@ -151,6 +225,29 @@ screens = [
     ),
 ]
 
+if num_monitors > 1:
+    for m in range(num_monitors - 1):
+        screens.append(
+            Screen(
+                top=bar.Bar(
+                    [
+                        widget.CurrentLayoutIcon(),
+                        widget.GroupBox(visible_groups=[
+                                        '01', '02', '03', '04', '05', '06', '07', '08', '09', '00'], **groupbox_config),
+                        widget.WindowName(),
+                        widget.TextBox(text="[M 2]"),
+                        widget.TextBox(text='['),
+                        Weather(update_interval=10, padding=1),
+                        widget.Sep(),
+                        widget.Clock(format='%d/%m/%Y %H:%M'),
+                        widget.Sep(),
+                        widget.TextBox(text=']'),
+                    ],
+                    24,
+                    background=xrdb.resources['*background']
+                ),
+            ),
+        )
 # Drag floating layouts.
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
@@ -163,7 +260,7 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 main = None
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(float_rules=[

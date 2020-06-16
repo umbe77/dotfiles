@@ -13,7 +13,7 @@ super + Return
 super + p 
 	dmenu_run_colors
 
-alt + 0
+alt + l
     locker
 
 super + {_,shift +} d
