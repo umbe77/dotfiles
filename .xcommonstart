@@ -12,8 +12,6 @@ start-pulseaudio-x11 &
 
 xrdb -merge ~/.Xresources &
 
-#numlockx &
-
 restorebg & 
 
 xsetroot -cursor_name left_ptr &
