@@ -4,6 +4,7 @@ let g:coc_global_extensions = [
     \ 'coc-lists',
     \ 'coc-pairs',
     \ 'coc-omnisharp',
+    \ 'coc-lua',
     \ 'coc-tsserver',
     \ 'coc-floaterm',
     \ 'coc-html',

@@ -1,6 +1,6 @@
 #/usr/bin/env bash
 
-[ -f ~/.xprofile ] && . ~/.xprofile
+# [ -f ~/.xprofile ] && . ~/.xprofile
 
 case $WM in
     awesome)

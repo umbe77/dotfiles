@@ -23,7 +23,7 @@ alt + b
     $BROWSER
 
 super + e
-    $TERMINAL -t Ranger -e explorer
+     alacritty -t Ranger -e explorer
 
 alt + s
     rofi -show ssh

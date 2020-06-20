@@ -52,7 +52,7 @@ export CURRENT_CITY_PATH=$HOME/.cache/umbe/current_city
 export WEATHER_CACHE=$HOME/.cache/umbe/weather
 
 TERMINAL=st
-command -v alacritty > /dev/null && TERMINAL=alacritty
+#command -v alacritty > /dev/null && TERMINAL=alacritty
 
 export TERMINAL
 
