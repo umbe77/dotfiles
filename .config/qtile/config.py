@@ -84,6 +84,8 @@ keys = [
     # Move windows up or down in current stack
     Key([mod, "control"], "k", lazy.layout.shuffle_down()),
     Key([mod, "control"], "j", lazy.layout.shuffle_up()),
+    # Run Terminal
+    Key([mod], "Return", lazy.spawn('st')),
 
     # Switch window focus to other pane(s) of stack
     Key([mod], "space", lazy.next_layout()),

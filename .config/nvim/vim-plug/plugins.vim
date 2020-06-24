@@ -55,6 +55,7 @@ Plug 'neovimhaskell/haskell-vim'
 " Hskell Hilint
 Plug 'alx741/vim-hindent'
 
+" protobuf highliting
 Plug 'uarun/vim-protobuf'
 
 call plug#end()
