@@ -12,6 +12,9 @@ case $WM in
     bspwm)
         exec bspwm
         ;;
+    leftwm)
+        exec leftwm
+        ;;
     *)
         exec qtile 
         ;;
