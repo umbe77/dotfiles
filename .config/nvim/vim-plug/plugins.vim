@@ -57,6 +57,7 @@ Plug 'alx741/vim-hindent'
 
 " protobuf highliting
 Plug 'uarun/vim-protobuf'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 

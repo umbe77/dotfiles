@@ -202,6 +202,11 @@ groupbox_config = dict(
     active=xrdb.resources['*foreground'],
 )
 
+
+def refresh_weather(qtile):
+    qtile.cmd_spawn('polybar_weather_click')
+
+
 screens = [
     Screen(
         top=bar.Bar(
@@ -214,9 +219,11 @@ screens = [
                 widget.TextBox(text='['),
                 widget.PulseVolume(),
                 widget.Sep(),
-                Weather(update_interval=10, padding=1),
+                Weather(update_interval=10, padding=1,
+                        mouse_callbacks={'Button1': refresh_weather}),
                 widget.Sep(),
-                widget.Clock(format='%d/%m/%Y %H:%M'),
+                widget.Clock(format='%d/%m/%Y %H:%M',
+                             mouse_callbacks={'Button1': refresh_weather}),
                 widget.Sep(),
                 widget.TextBox(text=']'),
                 widget.Systray(),
@@ -239,7 +246,8 @@ if num_monitors > 1:
                         widget.WindowName(),
                         widget.TextBox(text="[M 2]"),
                         widget.TextBox(text='['),
-                        Weather(update_interval=10, padding=1),
+                        Weather(update_interval=10, padding=1,
+                                mouse_callbacks={'Button1': refresh_weather}),
                         widget.Sep(),
                         widget.Clock(format='%d/%m/%Y %H:%M'),
                         widget.Sep(),
