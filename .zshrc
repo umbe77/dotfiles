@@ -42,7 +42,7 @@ bindkey -M vicmd ' ' edit-command-line
 setopt histignorealldups sharehistory
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.gem/ruby/2.7.0/bin:$HOME/.dotnet/tools:$HOME/.scripts:$HOME/bin:/snap/bin:/usr/local/bin:$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.gem/ruby/2.7.0/bin:$HOME/.dotnet/tools:$HOME/.scripts:$HOME/bin:/snap/bin:/usr/local/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export XDG_CONFIG_HOME=$HOME/.config
 export TZ=Europe/Rome

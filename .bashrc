@@ -26,14 +26,13 @@ promptstatus () {
 
 readonly () {
     previuosReturn=$?
-    if [ ! -w $(pwd) ]; then
+    if [ ! -w "$(pwd)" ]; then
         echo -n -e '\e[31mREADONLY \e[m'
     fi
     return $previuosReturn
 }
 
 PS1='\n$(readonly)\[\e[96m\]\w\[\e[m\]\n \[\e[34m\](\h)\[\e[m\]\[$(promptstatus)\]> \[\e[m\]'
-
 
 export PS1
 
