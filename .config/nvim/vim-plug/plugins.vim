@@ -9,6 +9,7 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 
 Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Surround
 Plug 'tpope/vim-surround'
@@ -29,7 +30,7 @@ Plug 'jiangmiao/auto-pairs'
 " Have the file system follow you around
 Plug 'airblade/vim-rooter'
 " Ranger
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+Plug 'kevinhwang91/rnvimr'
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
