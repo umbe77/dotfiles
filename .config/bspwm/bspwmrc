@@ -4,7 +4,7 @@
 . "${HOME}/.xcommonstart"
 
 $HOME/.config/polybar/launch.sh &
-sxhkd $HOME/.config/sxhkd/bspwm &
+sxhkd &
 
 
 #bspwm initial config section
