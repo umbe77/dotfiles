@@ -556,7 +556,7 @@ menu-2-1-exec = menu-open-0
 
 [module/weather]
 type = custom/script
-exec = polybar_weather
+exec = ~/.scripts/polybar_weather
 
 format = <label>
 format-font=1
@@ -568,7 +568,7 @@ format-font=1
 label = %output%
 ;label-padding = 2
 
-click-left = polybar_weather_click
+click-left = ~/.scripts/polybar_weather_click
 
 [module/docker]
 type = custom/script

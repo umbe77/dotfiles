@@ -3,7 +3,7 @@
 #
 
 super + Return
-    $TERMINAL
+    st
 
 # quit bspwm normally
 super + alt + Escape
@@ -123,7 +123,7 @@ super + Escape
 
 # program launcher
 super + p 
-	dmenu_run_colors
+	$HOME/.scripts/dmenu_run_colors
 
 alt + l
     locker
@@ -132,7 +132,7 @@ super + {_,shift +} d
     {start_containers,stop_containers}
 
 alt + b
-    $BROWSER
+    chromium
 
 super + e
      alacritty -t Ranger -e explorer
