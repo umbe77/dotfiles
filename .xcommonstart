@@ -1,39 +1,23 @@
 #!/usr/bin/env bash
 
-if [[ -n "`which luarocks 2>/dev/null`" ]]; then
-    eval `luarocks path --bin`
-fi
 
 ~/.screenlayout/umbedesk.sh
 
-unclutter -keystroke &
+dunst &
+picom &
+xbanish &
+xautolock -time 10 -locker locker &
 
 start-pulseaudio-x11 &
-
-xrdb -merge ~/.Xresources &
-
 restorebg & 
-
+xrdb -merge ~/.Xresources &
 xsetroot -cursor_name left_ptr &
 
 #setxkbmap it
-
 set_current_city 1 &
 
 #map CapsLock to Escape key
 setxkbmap -option caps:escape &
-
-dunst &
-picom &
-
-xautolock -time 10 -locker locker &
-
-if [ "$WM" == "bspwm" ]; then
-    $HOME/.config/polybar/launch.sh &
-    sxhkd $HOME/.config/sxhkd/bspwm &
-else
-    sxhkd &
-fi
 
 command -v blueman > /dev/null && blueman-applet &
 command -v nm-applet > /dev/null && nm-applet &

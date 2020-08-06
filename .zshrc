@@ -27,7 +27,11 @@ bindkey '^[[Z' undo                                             # Shift+tab undo
 fpath+=$HOME/.config/zsh/pure
 autoload -Uz promptinit
 promptinit
-#prompt adam1
+
+# luarocks configuration
+if [[ -n "`which luarocks 2>/dev/null`" ]]; then
+    eval `luarocks path --bin`
+fi
 
 eval "$(starship init zsh)"
 ## Edit command line

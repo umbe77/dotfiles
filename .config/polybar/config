@@ -37,9 +37,62 @@ ws_yellow = #ffb52a
 ws_blue = #0a6cf5
 
 [bar/main]
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = "HDMI2"
 width = 100%
-height = 32
+height = 20
+;offset-x = 0
+;offset-y = -1
+;radius = 6.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+;border-size = 4
+;border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 0
+module-margin-right = 1
+
+font-0 = UbuntuMonoNerdFont:style=Regular:pixelsize=12;1
+font-1 = FontAwesome5Free:style=Solid:pixelsize=12;antialias=false;3
+font-2 = JoyPixels:style=Regular:scale=12;antialias=true;3
+;font-2 = Twemoji:style=Regular:scale=6;antialias=true;3
+;font-2 = NotoColorEmoji:style=Regular:scale=8:antialias=true;1
+;font-2 = siji:pixelsize=10;1
+
+modules-left = bspwm xwindow
+;modules-center = mpd
+modules-right = pulseaudio weather date
+
+tray-position = right
+;tray-padding = 2
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+wm-restack = i3
+
+;override-redirect = true
+enable-ipc = true
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/main1]
+monitor = "HDMI1"
+width = 100%
+height = 20
 ;offset-x = 1%
 ;offset-y = 1%
 ;radius = 6.0
@@ -60,17 +113,17 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 1
 
-font-0 = UbuntuMonoNerdFont:style=Regular:pixelsize=13;1
-font-1 = FontAwesome5Free:style=Solid:pixelsize=13;antialias=false;3
+font-0 = UbuntuMonoNerdFont:style=Regular:pixelsize=12;1
+font-1 = FontAwesome5Free:style=Solid:pixelsize=12;antialias=false;3
 
-font-2 = JoyPixels:style=Regular:scale=8;antialias=true;3
+font-2 = JoyPixels:style=Regular:scale=12;antialias=true;3
 ;font-2 = Twemoji:style=Regular:scale=6;antialias=true;3
 ;font-2 = NotoColorEmoji:style=Regular:scale=8:antialias=true;1
 ;font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm xwindow
 ;modules-center = mpd
-modules-right = pulseaudio memory cpu eth battery weather docker date
+modules-right = pulseaudio weather date
 
 tray-position = right
 tray-padding = 2
@@ -122,6 +175,8 @@ label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/bspwm]
 type = internal/bspwm
+
+pin-workspaces = true
 
 format = <label-state> <label-mode>
 
@@ -316,10 +371,10 @@ time = "%H:%M"
 
 ;format-prefix = " "
 format-font = 1
-format-prefix-foreground = ${colors.foreground}
+:format-prefix-foreground = ${colors.foreground}
 ;format-padding = 2
-format-background = ${colors.background-alt}
-format-underline = ${colors.magenta}
+;format-background = ${colors.background-alt}
+;format-underline = ${colors.magenta}
 
 label =   %date% %time%
 label-padding = 2
@@ -330,18 +385,18 @@ type = internal/pulseaudio
 format-volume = <label-volume>
 label-volume =   %percentage%%
 label-volume-foreground = ${root.foreground}
-label-volume-underline = ${colors.magenta}
-label-muted-underline = ${self.label-volume-underline}
+;label-volume-underline = ${colors.magenta}
+;label-muted-underline = ${self.label-volume-underline}
 ;label-volume-font = 2
 
 label-muted = 
 label-muted-font = 2
 ;label-muted-foreground = #666
 
-label-volume-background = ${colors.background-alt}
-label-muted-background = ${colors.background-alt}
-label-volume-padding = 2 
-label-muted-padding = 2
+;label-volume-background = ${colors.background-alt}
+;label-muted-background = ${colors.background-alt}
+;label-volume-padding = 2 
+;label-muted-padding = 2
 
 ramp-volume-0 = 🔈
 ramp-volume-1 = 🔉
@@ -506,13 +561,13 @@ exec = polybar_weather
 
 format = <label>
 format-font=1
-format-forground = ${colors.foreground}
-format-background = ${colors.background-alt}
-format-underline = ${colors.magenta}
+;format-forground = ${colors.foreground}
+;format-background = ${colors.background-alt}
+;format-underline = ${colors.magenta}
 ;format-padding = 2
 
 label = %output%
-label-padding = 2
+;label-padding = 2
 
 click-left = polybar_weather_click
 
