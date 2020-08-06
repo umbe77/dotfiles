@@ -135,7 +135,7 @@ alt + b
     chromium
 
 super + e
-     alacritty -t Ranger -e explorer
+     alacritty -t Ranger -e ~/.scripts/explorer
 
 alt + s
     rofi -show ssh
