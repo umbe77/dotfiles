@@ -132,7 +132,7 @@ super + {_,shift +} d
     {start_containers,stop_containers}
 
 alt + b
-    chromium
+    chromium-browser
 
 super + e
      alacritty -t Ranger -e ~/.scripts/explorer

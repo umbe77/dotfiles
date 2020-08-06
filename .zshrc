@@ -65,7 +65,7 @@ export EDITOR=nvim
 if [ -f ~/.config/myconfigs/variables ]; then
     source ~/.config/myconfigs/variables
 else
-    export BROWSER=chromium
+    export BROWSER=chromium-browser
 fi
 # Use emacs keybindings even if our EDITOR is set to vi
 setopt correct                                                  # Auto correct mistakes
