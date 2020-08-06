@@ -53,7 +53,7 @@ beautiful.font = "JetBrainsMono Nerd Font 10"
 beautiful.useless_gap = 0
 
 -- This is used later as the default terminal and editor to run.
-terminal = "alacritty"
+terminal = "st"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -220,6 +220,7 @@ awful.screen.connect_for_each_screen(function(s)
         {
             layout = wibox.layout.fixed.horizontal,
             spacing = 5,
+            wibox.widget.textbox(""),
             s.mytasklist
         },
         { -- Right widgets
@@ -498,6 +499,7 @@ awful.rules.rules = {
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      raise = true,
+                     size_hints_honor = false;
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
@@ -612,9 +614,9 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", {raise = false})
-end)
+-- client.connect_signal("mouse::enter", function(c)
+    -- c:emit_signal("request::activate", "mouse_enter", {raise = false})
+-- end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
