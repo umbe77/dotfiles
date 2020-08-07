@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
+   
+CURRENT_CITY_PATH=$HOME/.cache/umbe/current_city
 
 echo -n "$(< $CURRENT_CITY_PATH)"

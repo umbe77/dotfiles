@@ -6,7 +6,8 @@
 dunst &
 picom &
 xbanish &
-xautolock -time 10 -locker locker &
+xpad &
+xautolock -time 10 -locker ~/.scripts/locker &
 
 start-pulseaudio-x11 &
 ~/.scripts/restorebg & 

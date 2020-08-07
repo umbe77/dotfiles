@@ -2,6 +2,7 @@
 
 REFRESH=$1
 
+CURRENT_CITY_PATH=$HOME/.cache/umbe/current_city
 CURRENT_CITY_DIR=$(dirname "$CURRENT_CITY_PATH")
 
 [ ! -d $CURRENT_CITY_DIR  ] && 

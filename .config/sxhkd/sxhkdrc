@@ -14,7 +14,7 @@ super + alt + Escape
 	# bspc node -{c,k}
 
 super + q
-    bspc node -k
+    bspc node -c
 
 # alternate between the tiled and monocle layout
 super + m

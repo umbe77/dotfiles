@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Initialize PATH Variable
+
+. "${HOME}/.pathdef"
+
+
 #AUTOSTART section
 . "${HOME}/.xcommonstart"
 

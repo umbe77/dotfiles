@@ -1,7 +1,10 @@
 #!/usr/bin/env sh
 
+BASE_PATH=$HOME/.scripts
+WEATHER_CACHE=$HOME/.cache/umbe/weather
+
 refresh_cache() {
-    CITY=$(current_city) &&
+    CITY=$($BASE_PATH/current_city) &&
     curl -s -k http://wttr.in/$CITY?format=3 > $WEATHER_CACHE
 }
 
