@@ -1,20 +1,16 @@
 #
 # bspwm hotkeys
 #
-
 super + Return
-    st
+    $TERMINAL
 
 # quit bspwm normally
 super + alt + Escape
 	bspc quit
 
 # close and kill
-# super + {_,shift + }w
-	# bspc node -{c,k}
-
-super + q
-    bspc node -c
+super + {_,shift + }q
+	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
 super + m
@@ -78,24 +74,24 @@ super + {_,shift + }{1-9,0}
 super + {comma,period} 
     bspc monitor -f {prev,next}
 #
-# preselect
+# preselect AKA manual
 #
 
 # preselect the direction
-super + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+#super + ctrl + {h,j,k,l}
+#	bspc node -p {west,south,north,east}
 
 # preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+#super + ctrl + {1-9}
+#	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
-super + ctrl + space
-	bspc node -p cancel
+#super + ctrl + space
+#	bspc node -p cancel
 
 # cancel the preselection for the focused desktop
-super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+#super + ctrl + shift + space
+#	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
 # move/resize
@@ -113,6 +109,21 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+#
+# custom bspwm commands
+#
+
+alt + f
+    $HOME/.scripts/bspwm_sticky
+
+alt + h
+    $HOME/.scripts/bspwm_sticky_toggle_hide
+
+super + b
+    $HOME/.scripts/bspwm_hide_bar
+
+alt + shift + l
+    $HOME/.scripts/bspwm_shutdown_ui
 #
 # wm independent hotkeys
 #
@@ -138,6 +149,8 @@ super + e
      alacritty -t Ranger -e ~/.scripts/explorer
 
 alt + s
-    rofi -show ssh
+    rofi -modi ssh -show ssh
 alt + w
-    rofi -show window
+    rofi -modi window -show window
+alt + space
+    rofi -modi drun,run -show drun -show-icons

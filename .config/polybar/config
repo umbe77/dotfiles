@@ -9,40 +9,30 @@
 
 [colors]
 background = ${xrdb:color0:#222}
-;background = #222
-;background-alt = #444
 background-alt = ${xrdb:color1}
-foreground = ${xrdb:color7:#222}
-;foreground = #dfdfdf
-;foreground-alt = #555
+foreground = ${xrdb:color7:#dfdfdf}
 foreground-alt = ${xrdb:color4}
 primary = ${xrdb:color1}
-;primary = #ffb52a
 secondary = ${xrdb:color2}
-;secondary = #e60053
 alert = ${xrdb:color3}
-;alert = #bd2c40
 magenta = #9f78e1
 
 ws_yellow = #ffb52a
 ws_blue = #0a6cf5
 
-[bar/main]
+[bar/base]
 width = 100%
 height = 20
-;offset-x = 0
-;offset-y = -1
-;radius = 6.0
 fixed-center = false
 
 background = ${colors.background}
+;background = #DD222222
 foreground = ${colors.foreground}
 
 line-size = 2
 line-color = #f00
 
-;border-size = 4
-;border-color = #00000000
+separator = "  "
 
 padding-left = 0
 padding-right = 0
@@ -56,81 +46,36 @@ font-2 = NotoColorEmoji:style=Regular:scale=8:antialias=true;1
 ;font-2 = JoyPixels:style=Regular:scale=12;antialias=true;3
 ;font-2 = Twemoji:style=Regular:scale=6;antialias=true;3
 ;font-2 = siji:pixelsize=10;1
-
-modules-left = bspwm xwindow
-;modules-center = mpd
-modules-right = pulseaudio weather date
-
-tray-position = right
-;tray-padding = 2
-;tray-background = #0063ff
 
 wm-restack = bspwm
 ;wm-restack = i3
 
-;override-redirect = true
+override-redirect = true
 enable-ipc = true
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-[bar/secondary]
-monitor = ${env:MONITOR}
-width = 100%
-height = 20
-;offset-x = 1%
-;offset-y = 1%
-;radius = 6.0
-fixed-center = false
 
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-;border-size = 4
-;border-color = #00000000
-
-padding-left = 0
-padding-right = 0
-
-module-margin-left = 0
-module-margin-right = 1
-
-font-0 = UbuntuMonoNerdFont:style=Regular:pixelsize=12;1
-font-1 = FontAwesome5Free:style=Solid:pixelsize=12;antialias=false;3
-font-2 = NotoColorEmoji:style=Regular:scale=8:antialias=true;1
-;font-2 = JoyPixels:style=Regular:scale=12;antialias=true;3
-;font-2 = Twemoji:style=Regular:scale=6;antialias=true;3
-;font-2 = siji:pixelsize=10;1
-
+[bar/main]
+inherit = bar/base
 modules-left = bspwm xwindow
 ;modules-center = mpd
-modules-right = pulseaudio weather date
+modules-right = bspwmpin pulseaudio weather popupdate bspwmpower
 
-tray-position = none
+tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
 
-wm-restack = bspwm
-;wm-restack = i3
 
-;override-redirect = true
-enable-ipc = true
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
+[bar/secondary]
+monitor = ${env:MONITOR}
+inherit = bar/base
+modules-left = bspwm xwindow
+;modules-center = mpd
+modules-right = bspwmpin pulseaudio weather date
 
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
-cursor-click = pointer
-cursor-scroll = ns-resize
+tray-position = none
 
 [module/xwindow]
 type = internal/xwindow
@@ -544,6 +489,24 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
+[module/bspwmpower]
+type = custom/text
+content = "  "
+content-font = 2
+content-background = #ff0000
+
+click-left = $HOME/.scripts/bspwm_shutdown_ui
+
+[module/bspwmpin]
+type = custom/ipc
+
+format = <output>
+
+hook-0 = echo ""
+hook-1 = echo ""
+
+click-left = ~/.scripts/bspwm_sticky_toggle_hide
+
 [module/weather]
 type = custom/script
 exec = ~/.scripts/polybar_weather
@@ -559,7 +522,21 @@ label = %output%
 ;label-padding = 2
 
 click-left = ~/.scripts/polybar_weather_click
+interval = 60
 
+[module/spacer]
+type = custom/text
+content = |
+;content-padding = 1
+
+[module/popupdate]
+type = custom/script
+exec = ~/.scripts/polybar_date
+format-font = 1
+
+label = %output%
+
+click-left = ~/.scripts/polybar_date --popup
 [module/docker]
 type = custom/script
 exec = polybar_docker

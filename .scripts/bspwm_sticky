@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+STICKY=$(bspc query -N -n .sticky)
+FOCUSED=$(bspc query -N -n .focused)
+
+if [[ ! -z "$STICKY" && "$FOCUSED" != "$STICKY" ]]; then
+    zenity --error --title="BSPWM Error" --text="Sticky window just present"
+else
+    if [ -z "$STICKY" ]; then
+        bspc node --flag sticky --state floating
+        polybar-msg hook bspwmpin 1
+    else
+        bspc node --flag sticky=off --state tiled
+        polybar-msg hook bspwmpin 2
+    fi
+fi
+
+
