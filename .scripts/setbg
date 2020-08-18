@@ -6,7 +6,8 @@ lock_bg="$HOME/.config/wallpaper/lock.png"
 [ -f "$1" ] && ln -sf  "$(realpath "$1")" "$bg" && notify-send -i "$bg" "Changing wallpaper..."
 [[ -f "$1" && $(command -v convert) ]] && (convert "$(realpath "$1")" -channel RGBA -blur 0x8 "$lock_bg") &
 
-wal -i $(realpath "$bg") -n -s -t -o wal-postrun
+#wal -i $(realpath "$bg") -n -s -t -o wal-postrun
+wal -i $(realpath "$bg") -n -s -t -o 
 
 nitrogen --head=0 --set-scaled "$bg"
 nitrogen --head=1 --set-scaled "$bg"

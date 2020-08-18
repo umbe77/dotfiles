@@ -33,8 +33,8 @@ super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
-super + ctrl + {x,y,z}
-	bspc node -g {locked,sticky,private}
+super + ctrl + {h,x,y,z}
+	bspc node -g {hidden,locked,sticky,private}
 
 #
 # focus/swap
@@ -145,8 +145,11 @@ super + {_,shift +} d
 alt + b
     chromium-browser
 
+alt + i
+    chromium-browser --incognito
 super + e
      alacritty -t Ranger -e ~/.scripts/explorer
+    #ranger
 
 alt + s
     rofi -modi ssh -show ssh
@@ -154,3 +157,4 @@ alt + w
     rofi -modi window -show window
 alt + space
     rofi -modi drun,run -show drun -show-icons
+

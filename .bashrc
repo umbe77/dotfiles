@@ -45,6 +45,7 @@ alias rm='rm -i'
 alias more='less'
 alias ls='ls -lh --color=auto'
 alias ll='ls -alh --color=auto'
+alias sync-files="rsync -ah --progress --chmod=+rx"
 alias vi='vim'
 
 shopt -s checkwinsize

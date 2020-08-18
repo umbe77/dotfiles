@@ -8,17 +8,19 @@
 ;
 
 [colors]
-background = ${xrdb:color0:#222}
-background-alt = ${xrdb:color1}
-foreground = ${xrdb:color7:#dfdfdf}
+background = #902E3440
+;background = ${xrdb:background}
+background-alt = ${xrdb:color8}
+foreground = ${xrdb:foreground:#dfdfdf}
 foreground-alt = ${xrdb:color4}
+underline = ${xrdb:color6}
 primary = ${xrdb:color1}
 secondary = ${xrdb:color2}
 alert = ${xrdb:color3}
-magenta = #9f78e1
+magenta = ${xrdb:color13} 
 
-ws_yellow = #ffb52a
-ws_blue = #0a6cf5
+underline_focus = ${xrdb:color11}
+underline_occupied = ${xrdb:color4}
 
 [bar/base]
 width = 100%
@@ -32,8 +34,6 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = #f00
 
-separator = "  "
-
 padding-left = 0
 padding-right = 0
 
@@ -41,8 +41,9 @@ module-margin-left = 0
 module-margin-right = 1
 
 font-0 = UbuntuMonoNerdFont:style=Regular:pixelsize=12;1
-font-1 = FontAwesome5Free:style=Solid:pixelsize=12;antialias=false;3
+font-1 = FontAwesome5Free:style=Solid:pixelsize=10;antialias=false;3
 font-2 = NotoColorEmoji:style=Regular:scale=8:antialias=true;1
+font-3 = Weather Icons:pixelsize=12:antialias=true;1
 ;font-2 = JoyPixels:style=Regular:scale=12;antialias=true;3
 ;font-2 = Twemoji:style=Regular:scale=6;antialias=true;3
 ;font-2 = siji:pixelsize=10;1
@@ -61,7 +62,7 @@ cursor-scroll = ns-resize
 inherit = bar/base
 modules-left = bspwm xwindow
 ;modules-center = mpd
-modules-right = bspwmpin pulseaudio weather popupdate bspwmpower
+modules-right = bspwmpin bspwmhidden pulseaudio weather popupdate bspwmpower
 
 tray-position = right
 tray-padding = 2
@@ -73,7 +74,7 @@ monitor = ${env:MONITOR}
 inherit = bar/base
 modules-left = bspwm xwindow
 ;modules-center = mpd
-modules-right = bspwmpin pulseaudio weather date
+modules-right = bspwmpin bspwmhidden pulseaudio weather date
 
 tray-position = none
 
@@ -116,11 +117,11 @@ format = <label-state> <label-mode>
 
 label-focused = %name%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.ws_yellow}
+label-focused-underline= ${colors.underline_focus}
 label-focused-padding = 1
 
 label-occupied = %name%
-label-occupied-underline = ${colors.ws_blue}
+label-occupied-underline = ${colors.underline_occupied}
 label-occupied-padding = 1
 
 label-urgent = %name%!
@@ -305,12 +306,13 @@ time = "%H:%M"
 
 ;format-prefix = " "
 format-font = 1
-:format-prefix-foreground = ${colors.foreground}
+;format-prefix-foreground = ${colors.foreground}
 ;format-padding = 2
 ;format-background = ${colors.background-alt}
-;format-underline = ${colors.magenta}
+format-underline = ${colors.underline}
 
 label =   %date% %time%
+label-underline = ${colors.underline}
 label-padding = 2
 
 [module/pulseaudio]
@@ -318,9 +320,9 @@ type = internal/pulseaudio
 
 format-volume = <label-volume>
 label-volume =   %percentage%%
-label-volume-foreground = ${root.foreground}
-;label-volume-underline = ${colors.magenta}
-;label-muted-underline = ${self.label-volume-underline}
+;label-volume-foreground = ${root.foreground}
+label-volume-underline = ${colors.underline}
+label-muted-underline = ${self.label-volume-underline}
 ;label-volume-font = 2
 
 label-muted = 
@@ -493,36 +495,54 @@ menu-2-1-exec = menu-open-0
 type = custom/text
 content = "  "
 content-font = 2
-content-background = #ff0000
+content-foreground = ${xrdb:color1}
 
 click-left = $HOME/.scripts/bspwm_shutdown_ui
+
+[module/bspwmhidden]
+type = custom/ipc
+
+format = <output>
+format-foreground = ${colors.alert} 
+format-font = 2
+format-underline = ${colors.magenta}
+
+hook-0 = echo "  "
+hook-1 = echo ""
+
+click-left = ~/.scripts/bspwm_hidden_nodes
 
 [module/bspwmpin]
 type = custom/ipc
 
 format = <output>
+format-foreground = ${colors.alert} 
+format-font = 2
+format-underline = ${colors.magenta}
 
-hook-0 = echo ""
+hook-0 = echo "  "
 hook-1 = echo ""
 
 click-left = ~/.scripts/bspwm_sticky_toggle_hide
 
 [module/weather]
 type = custom/script
-exec = ~/.scripts/polybar_weather
+;exec = ~/.scripts/polybar_weather
+exec = ~/.scripts/openweatherwidget
 
-format = <label>
-format-font=1
+;format = <label>
+;format-font=4
 ;format-forground = ${colors.foreground}
 ;format-background = ${colors.background-alt}
-;format-underline = ${colors.magenta}
+format-underline = ${colors.underline}
 ;format-padding = 2
 
-label = %output%
-;label-padding = 2
+;label = %output%
+label-font = 4
+label-padding = 1
 
-click-left = ~/.scripts/polybar_weather_click
-interval = 60
+click-right = ~/.scripts/polybar_weather_click
+interval = 600
 
 [module/spacer]
 type = custom/text
@@ -533,8 +553,9 @@ content = |
 type = custom/script
 exec = ~/.scripts/polybar_date
 format-font = 1
-
+format-underline = ${colors.underline}
 label = %output%
+label-padding = 1
 
 click-left = ~/.scripts/polybar_date --popup
 [module/docker]

@@ -2,6 +2,7 @@
 
 source "$HOME/.pathdef"
 
-source "$HOME/.cache/wal/colors.sh"
+#source "$HOME/.cache/wal/colors.sh"
+source "$HOME/.nord-colors.sh"
 
-dmenu_path | dmenu -nb $background -nf $foreground -sb $color1 -sf $foreground -nsb $background -nsf $color6 -ssb $color1 -ssf $color6 "$@" | ${SHELL-:"/bin/sh"} &
+dmenu_path | dmenu -nb $background -nf $foreground -sb $color4 -sf $foreground -nsb $background -nsf $color3 -ssb $color4 -ssf $color3 "$@" | ${SHELL-:"/bin/sh"} &

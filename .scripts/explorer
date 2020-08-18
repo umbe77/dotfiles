@@ -1,9 +1,3 @@
 #!/usr/bin/env bash
 
-cur_terminal=$1
-
-if [[ "$cur_terminal" != "st" ]] ; then
-    cat ~/.cache/wal/sequences
-fi
-
 ranger

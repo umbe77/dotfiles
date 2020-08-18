@@ -11,6 +11,7 @@
 $HOME/.config/polybar/launch.sh &
 sxhkd &
 $HOME/.scripts/bspwm_subscribe_sticky &
+$HOME/.scripts/bspwm_subscribe_hidden &
 
 #bspwm initial config section
 
@@ -21,7 +22,7 @@ ${HOME}/.config/bspwm/setmonitor.sh
 bspc desktop -f 1
 
 # source the colors.
-. "${HOME}/.cache/wal/colors.sh"
+. "${HOME}/.bord-themes.sh"
 
 # Set the border colors.
 bspc config normal_border_color "$color1"
@@ -55,4 +56,5 @@ bspc rule -a Zenity state=floating
 bspc rule -a openfortiGUI state=floating
 bspc rule -a xpad state=floating
 bspc rule -a Yad state=floating
+bspc rule -a vlc state=floating
 bspc rule -a "Microsoft Teams - Preview" state=floating

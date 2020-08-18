@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-bspc subscribe node_remove | 
+#TODO: check for a pipe and create one of it for each monitor
+
+bspc subscribe node_flag node_remove | 
     while read -a evt; do
+        #TODO: write on pipe desktop id  if there is any window hidden
         STICKY=$(bspc query -N -n .sticky)
         [ -z "$STICKY" ] && polybar-msg hook bspwmpin 2
     done
