@@ -528,7 +528,7 @@ click-left = ~/.scripts/bspwm_sticky_toggle_hide
 [module/weather]
 type = custom/script
 ;exec = ~/.scripts/polybar_weather
-exec = ~/.scripts/openweatherwidget
+exec = ~/.local/bin/openweatherwidget
 
 ;format = <label>
 ;format-font=4
