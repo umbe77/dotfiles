@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+NODES=()
+NODE_NAMES=()
+
+while read n; do
+    NODES+=($n)
+    NODE_NAMES+=("$(xtitle $n)")
+done <<< $(bspc query -N -d focused -n '.window.hidden.!sticky') 
+
+if [[ ! -z "$NODES" ]]; then
+    IDX=$(printf "%s\n" "${NODE_NAMES[@]}" | rofi -dmenu -format i)
+
+    [[ ! -z "$IDX" && "$IDX" -ge "0" ]] && bspc node ${NODES[$IDX]} -g hidden=false
+fi
+ 

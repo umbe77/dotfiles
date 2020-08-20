@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#hook:module/bspwmpin1
+
+bspc subscribe desktop_focus node_flag node_remove | 
+    while read -a evt; do
+        MONITOR=$(bspc query -T -m "${evt[1]}" | jq -r '.name')
+        HIDDENS=$(bspc query -N -d focused -n '.window.hidden.!sticky')
+        if [[ -z $HIDDENS ]]; then
+            echo hook:module/bspwmhidden2 >> /tmp/polybar_$MONITOR
+        else
+            echo hook:module/bspwmhidden1 >> /tmp/polybar_$MONITOR
+        fi
+        #TODO: get hidden windows for desktop in event.
+        #Send to polybar pipe for monitor the right message
+
+    done
