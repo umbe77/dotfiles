@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 STICKY=$(bspc query -N -n .sticky)
-bspc node "$STICKY" --flag hidden
+bspc node "$STICKY" --flag hidden -f
 

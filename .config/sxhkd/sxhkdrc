@@ -124,6 +124,12 @@ super + b
 
 alt + shift + l
     $HOME/.scripts/bspwm_shutdown_ui
+
+alt + Tab
+    $HOME/.scripts/bspwm_window_on_desktop
+
+ctrl + h
+    $HOME/.scripts/bspwm_hidden_nodes
 #
 # wm independent hotkeys
 #

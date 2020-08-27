@@ -9,8 +9,8 @@ while read n; do
 done <<< $(bspc query -N -d focused -n '.window.hidden.!sticky') 
 
 if [[ ! -z "$NODES" ]]; then
-    IDX=$(printf "%s\n" "${NODE_NAMES[@]}" | rofi -dmenu -format i)
+    IDX=$(printf "%s\n" "${NODE_NAMES[@]}" | rofi -dmenu -format i -matching fuzzy -i)
 
-    [[ ! -z "$IDX" && "$IDX" -ge "0" ]] && bspc node ${NODES[$IDX]} -g hidden=false
+    [[ ! -z "$IDX" && "$IDX" -ge "0" ]] && bspc node ${NODES[$IDX]} -g hidden=false -f
 fi
  
