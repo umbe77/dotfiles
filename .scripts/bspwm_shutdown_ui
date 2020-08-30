@@ -21,6 +21,6 @@ case $ACTION in
         systemctl reboot
         ;;
     Power*)
-        systemctl shutdown
+        systemctl poweroff
         ;;
 esac
