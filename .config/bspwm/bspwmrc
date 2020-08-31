@@ -59,3 +59,4 @@ bspc rule -a Yad state=floating
 bspc rule -a vlc state=floating
 bspc rule -a "Microsoft Teams - Preview" state=floating
 bspc rule -a mpv state=floating
+bspc rule -a GitKraken state=floating
