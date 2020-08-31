@@ -17,6 +17,7 @@ underline = ${xrdb:color6}
 primary = ${xrdb:color1}
 secondary = ${xrdb:color2}
 alert = ${xrdb:color3}
+urgent = ${xrdb:color1}
 magenta = ${xrdb:color13} 
 
 underline_focus = ${xrdb:color11}
@@ -125,7 +126,7 @@ label-occupied-underline = ${colors.underline_occupied}
 label-occupied-padding = 1
 
 label-urgent = %name%!
-label-urgent-background = ${colors.alert}
+label-urgent-background = ${colors.urgent}
 label-urgent-padding = 1
 
 label-empty = %name%
@@ -133,21 +134,21 @@ label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 1
 
 label-monocle = "  "
-label-monocle-foreground = ${colors.foreground}
+label-monocle-foreground = ${colors.magenta}
 label-tiled = "  "
-label-tiled-foreground = ${colors.foreground}
+label-tiled-foreground = ${colors.alert}
 label-fullscreen = "  "
-label-fullscreen-foreground = ${colors.foreground}
+label-fullscreen-foreground = ${colors.magenta}
 label-floating = "  "
-label-floating-foreground = ${colors.foreground}
+label-floating-foreground = ${colors.magenta}
 label-pseudotiled = "  "
-label-pseudotiled-foreground = ${colors.foreground}
+label-pseudotiled-foreground = ${colors.magenta}
 label-locked = "  "
-label-locked-foreground = ${colors.foreground}
+label-locked-foreground = ${colors.urgent}
 label-sticky = "  "
-label-sticky-foreground = ${colors.foreground}
+label-sticky-foreground = ${colors.urgent}
 label-private =  "     "
-label-private-foreground = ${colors.foreground}
+label-private-foreground = ${colors.urgent}
 
 
 ; Separator in between workspaces

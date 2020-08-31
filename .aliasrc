@@ -5,5 +5,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias ls='exa -l --color=always --group-directories-first' # my preferred listing
 alias ll='exa -al --color=always --group-directories-first'
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias df='df -h'
 alias cat='bat'
 alias sudo='sudo -E'
+#alias up='uptime | awk -F'( |,|:)+' '{print $6,$7",",$8,"hours,",$9,"minutes."}''
