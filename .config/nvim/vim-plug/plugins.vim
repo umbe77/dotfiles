@@ -9,7 +9,8 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 
 Plug 'arcticicestudio/nord-vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
+"Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'joshdick/onedark.vim'
 
 " Surround
 Plug 'tpope/vim-surround'

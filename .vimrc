@@ -18,9 +18,7 @@ set fileencoding=utf-8
 set encoding=utf-8
 
 set path+=**
-set number
-autocmd InsertEnter * :set norelativenumber
-autocmd InsertLeave * :set relativenumber
+set number relativenumber
 
 set hidden
 set tabstop=4 shiftwidth=4 expandtab "tab equals to 4 char

@@ -1,2 +1,2 @@
-colorscheme nord
+colorscheme onedark
 set background=dark
