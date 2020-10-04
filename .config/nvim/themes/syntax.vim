@@ -1,2 +1,2 @@
-colorscheme onedark
+colorscheme OceanicNext
 set background=dark
