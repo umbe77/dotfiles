@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-chromium-browser --new-window \
+chromium --new-window \
     https://www.icv-crew.com/forum/index.php?board=102.0 \
     http://ddunlimited.net/viewforum.php?f=324 \
     https://ilcorsaronero.pw/cat/1 \

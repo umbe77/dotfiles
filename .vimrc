@@ -43,4 +43,3 @@ noremap <Leader>p "*p
 noremap <Leader>Y "+y
 noremap <Leader>P "+p 
 
-au BufNewFile,BufRead /*.rasi setf css
