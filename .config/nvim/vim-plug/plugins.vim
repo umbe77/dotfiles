@@ -61,6 +61,9 @@ Plug 'alx741/vim-hindent'
 Plug 'uarun/vim-protobuf'
 Plug 'cespare/vim-toml'
 
+" nginx
+Plug 'chr4/nginx.vim'
+
 call plug#end()
 
 autocmd VimEnter *
