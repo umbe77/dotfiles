@@ -12,6 +12,8 @@ config.source('nord-theme.py')
 ## Type: Dict
 # c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save'}
 
+config.set("colors.webpage.darkmode.enabled", True)
+
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
 ## Type: Int
