@@ -1,0 +1,9 @@
+[$Version]
+update_info=kscreenlocker.upd:0.1-autolock
+
+[Greeter]
+Theme=Aritim-Dark
+
+[Greeter][Wallpaper][org.kde.image][General]
+Image=/home/rughi/Pictures/daniel-leone-v7daTKlZzaw-unsplash [modded].jpg
+SlidePaths=/usr/share/wallpapers

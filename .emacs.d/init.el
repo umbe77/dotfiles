@@ -1,111 +1,69 @@
-(require 'package)
- 
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
- 
+;;; init.el -*- lexical-binding: t; -*-
+;;
+;; Author:  Henrik Lissner <henrik@lissner.net>
+;; URL:     https://github.com/hlissner/doom-emacs
+;;
+;;   =================     ===============     ===============   ========  ========
+;;   \\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //
+;;   ||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||
+;;   || . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||
+;;   ||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||
+;;   || . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||
+;;   ||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .||
+;;   || . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . ||
+;;   ||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.||
+;;   ||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `||
+;;   ||    `'         || ||         `'    || ||    `'         || ||   | \  / |   ||
+;;   ||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   ||
+;;   ||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   ||
+;;   ||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   ||
+;;   ||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   ||
+;;   ||.=='    _-'                                                     `' |  /==.||
+;;   =='    _-'                                                            \/   `==
+;;   \   _-'                                                                `-_   /
+;;    `''                                                                      ``'
+;;
+;; These demons are not part of GNU Emacs.
+;;
+;;; License: MIT
 
-(setq package-enable-at-startup nil)
-(package-initialize)
+(when (< emacs-major-version 26)
+  (error "Detected Emacs v%s. Doom only supports Emacs 26 and newer"
+         emacs-version))
 
-;; bootstrap use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-(require 'use-package)
+;; A big contributor to startup times is garbage collection. We up the gc
+;; threshold to temporarily prevent it from running, then reset it later by
+;; enabling `gcmh-mode'. Not resetting it will cause stuttering/freezes.
+(setq gc-cons-threshold most-positive-fixnum)
 
-;; Font settings
-(add-to-list 'default-frame-alist
-	     '(font . "FiraCode-12"))
+;; In noninteractive sessions, prioritize non-byte-compiled source files to
+;; prevent the use of stale byte-code. Otherwise, it saves us a little IO time
+;; to skip the mtime checks on every *.elc file.
+(setq load-prefer-newer noninteractive)
 
-;; Themes
-(use-package nord-theme
-  :ensure t
-  :config
-  (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"))
-  (load-theme 'nord t)
-)
+;; `file-name-handler-alist' is consulted on every `require', `load' and various
+;; path/io functions. You get a minor speed up by nooping this. However, this
+;; may cause problems on builds of Emacs where its site lisp files aren't
+;; byte-compiled and we're forced to load the *.el.gz files (e.g. on Alpine)
+(unless (daemonp)
+  (defvar doom--initial-file-name-handler-alist file-name-handler-alist)
+  (setq file-name-handler-alist nil)
+  ;; Restore `file-name-handler-alist' later, because it is needed for handling
+  ;; encrypted or compressed files, among other things.
+  (defun doom-reset-file-handler-alist-h ()
+    ;; Re-add rather than `setq', because changes to `file-name-handler-alist'
+    ;; since startup ought to be preserved.
+    (dolist (handler file-name-handler-alist)
+      (add-to-list 'doom--initial-file-name-handler-alist handler))
+    (setq file-name-handler-alist doom--initial-file-name-handler-alist))
+  (add-hook 'emacs-startup-hook #'doom-reset-file-handler-alist-h))
 
-;; Mode line 
-(use-package powerline
-  :ensure t)
-(use-package airline-themes
-  :ensure t
-  :config
-  (load-theme 'airline-base16_nord t))
-  
-;; General configurations
+;; Ensure Doom is running out of this file's directory
+(setq user-emacs-directory (file-name-directory load-file-name))
 
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(toggle-scroll-bar -1)
+;; Load the heart of Doom Emacs
+(load (concat user-emacs-directory "core/core")
+      nil 'nomessage)
 
-(global-display-line-numbers-mode t)
-(setq display-line-numbers-type 'relative)
-
-(global-hl-line-mode)
-;; Load varius mode
-
-;; load evil
-(use-package evil
-  :ensure t ;; install the evil package if not installed
-  :init ;; tweak evil's configuration before loading it
-  (setq evil-search-module 'evil-search)
-  (setq evil-ex-complete-emacs-commands nil)
-  (setq evil-vsplit-window-right t)
-  (setq evil-split-window-below t)
-  (setq evil-shift-round nil)
-  (setq evil-want-C-u-scroll t)
-  :config ;; tweak evil after loading it
-  (evil-mode))
-
-;; load lsp mode and languages mode
-
-(use-package omnisharp
-  :ensure t
-  :hook (csharp-mode-hook . omnisharp-mode)
-  )
-
-(use-package lsp-mode
-  :ensure t
-  :hook (
-	 csharp-mode . lsp)
-  :commands lsp)
-(setq lsp-chsarp-server-install-dir (expand-file-name "~/.emacs.d/.cache/lsp/omnisharp"))
-
-(use-package lsp-ui
-  :ensure t)
-
-(use-package company
-  :ensure t
-  :config
-  (setq company-idle-delay 0.3)
-
-  (global-company-mode 1)
-
-  (global-set-key (kbd "C-SPC") 'company-complete))
-
-;; (use-package company-lsp
-;;   :ensure t
-;;   :requires company
-;;   :config
-;;   (push 'company-lsp company-backends)
-;;   ;; Disable client-side cache because the LSP server does a better job.
-;;   (setq company-transformers nil
-;;         company-lsp-async t
-;;         company-lsp-cache-candidates nil))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (lsp-ui company-lsp lsp-mode use-package spinner nord-theme markdown-mode lv ht f evil dash-functional company airline-themes))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; And let 'er rip!
+(doom-initialize)

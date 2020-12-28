@@ -1,0 +1,40 @@
+[$Version]
+update_info=ksmserver_update_loginMode_value.upd:ksmserver_update_loginMode_value_default_enum
+
+[General]
+loginMode=emptySession
+
+[LegacySession: saved at previous logout]
+count=0
+
+[Session: saved at previous logout]
+clientId1=10c5d7d968000160248632500000011510002
+clientId2=10c5d7d968000160242585400000008490004
+clientId3=10c5d7d968000160242585400000008490005
+clientId4=10c5d7d968000160248632600000011510004
+clientId5=10c5d7d968000160248651700000011510015
+count=5
+discardCommand2[$e]=rm,$HOME/.config/session/kmix_10c5d7d968000160242585400000008490004_1602489367_769393
+program1=/usr/lib/DiscoverNotifier
+program2=/usr/bin/kmix
+program3=/usr/bin/korgac
+program4=pulseaudio
+program5=/usr/bin/openfortigui
+restartCommand1=/usr/lib/DiscoverNotifier,-session,10c5d7d968000160248632500000011510002_1602489367_769303
+restartCommand2=/usr/bin/kmix,-session,10c5d7d968000160242585400000008490004_1602489367_769393
+restartCommand3=/usr/bin/korgac,-session,10c5d7d968000160242585400000008490005_1602489367_769476
+restartCommand4=
+restartCommand5=/usr/bin/openfortigui,-session,10c5d7d968000160248651700000011510015_1602489367_769496
+restartStyleHint1=0
+restartStyleHint2=0
+restartStyleHint3=0
+restartStyleHint4=0
+restartStyleHint5=0
+userId1=rughi
+userId2=rughi
+userId3=rughi
+userId4=rughi
+userId5=rughi
+
+[SubSession: 0f5c4b22-5fc4-41d0-9b54-d3a917b1073f]
+count=0

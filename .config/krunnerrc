@@ -1,0 +1,40 @@
+[General]
+FreeFloating=true
+HistoryEnabled=true
+RetainPriorSearch=false
+history=settings,gitk,subli,chromi,post,compa,forti,teams,qute,openfort,disco,com,code,chro,onlyo,soap,postma,kitty,konso,virt,qur,ala,qu,QUte,neo,ett,azur,inso,setTings,SETTings,kvan,kate,kva,bale,qbi,system,FIRe,opent,blue,Run home-dashboard,dol,onl,update,ch,fire,define,latte,SETt,sett,qt d
+
+[PlasmaRunnerManager]
+LaunchCounts=1 recentdocuments_file:///home/rughi/Downloads/balena-etcher-electron-1.5.109-linux-x64.zip,83 services_applications:systemsettings.desktop,1 services_applications:org.kde.latte-dock.desktop,3 services_applications:insomnia.desktop,1 baloosearch_/home/rughi/go/pkg/mod/github.com/docker/docker@v0.7.3-0.20190307005417-54dddadc7d5d/daemon/discovery,1 windows_0_92274694,14 services_applications:org.kde.discover.desktop,1 windows_0_56623106,2 services_applications:org.kde.konsole.desktop,1 krunner_appstream_io.github.OpenToonz,2 services_applications:marktext.desktop,6 services_applications:qdbusviewer.desktop,1 baloosearch_/home/rughi/st/st.1,1 services_applications:arandr.desktop,1 services_applications:org.kde.kgoldrunner.desktop,5 services_applications:visual-studio-code.desktop,4 services_applications:kvantummanager.desktop,1 services_applications:nvim-qt.desktop,12 services_applications:teams.desktop,2 services_applications:SoapUI-5.6.0-0.desktop,3 services_applications:azuredatastudio.desktop,1 windows_0_58720263,1 krunner_appstream_virt-manager.desktop,21 services_applications:openfortigui.desktop,1 services_applications:org.kde.kate.desktop,6 services_applications:onlyoffice-desktopeditors.desktop,4 services_applications:spotify.desktop,7 services_applications:postman.desktop,14 services_applications:mongodb-compass.desktop,1 services_applications:smart.desktop,1 windows_0_92274695,1 services_applications:kcm_users.desktop,1 services_applications:smbstatus.desktop,1 shell_st,3 krunner_appstream_xfce4-run.desktop,1 baloosearch_/home/rughi/go/pkg/mod/github.com/docker/docker@v0.7.3-0.20190307005417-54dddadc7d5d/CHANGELOG.md,4 services_applications:GitKraken.desktop,1 windows_0_104857633,1 shell_sxhkd $HOME/.config/sxhkd/sxhkd_plasma,21 services_applications:org.qutebrowser.qutebrowser.desktop,4 windows_0_94371847,2 services_applications:pamac-updater.desktop,33 services_applications:kitty.desktop,5 shell_kitty tmux,3 services_applications:Alacritty.desktop,2 shell_code,2 services_applications:org.kde.dolphin.desktop,78 services_applications:chromium.desktop,1 services_applications:virt-manager.desktop,5 services_applications:firefox.desktop,10 services_applications:sublime_text.desktop,1 services_applications:bluetooth.desktop,1 services_applications:org.qbittorrent.qBittorrent.desktop,1 shell_teams,2 bookmarks_https://www.hanselman.com/blog/RealBrowserIntegrationTestingWithSeleniumStandaloneChromeAndASPNETCore21.aspx,2 services_applications:htop.desktop
+
+[Plugins]
+CharacterRunnerEnabled=true
+DictionaryEnabled=true
+Kill RunnerEnabled=true
+PIM Contacts Search RunnerEnabled=true
+PowerDevilEnabled=true
+Spell CheckerEnabled=false
+baloosearchEnabled=true
+bookmarksEnabled=true
+browsertabsEnabled=true
+calculatorEnabled=true
+desktopsessionsEnabled=true
+katesessionsEnabled=true
+kdevelopsessionsEnabled=true
+konsoleprofilesEnabled=true
+krunner_appstreamEnabled=true
+ktp_contactsEnabled=true
+kwinEnabled=true
+locationsEnabled=true
+marbleEnabled=true
+org.kde.activitiesEnabled=true
+org.kde.datetimeEnabled=true
+org.kde.windowedwidgetsEnabled=true
+placesEnabled=true
+plasma-desktopEnabled=true
+recentdocumentsEnabled=true
+servicesEnabled=true
+shellEnabled=true
+unitconverterEnabled=true
+webshortcutsEnabled=true
+windowsEnabled=true

@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
+setxkbmap -option caps:escape &
 #source ~/.xcommonstart 
 #[ -f ~/.screenlayout/umbedesk.sh ] && source ~/.screenlayout/umbedesk.sh &

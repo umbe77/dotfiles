@@ -17,6 +17,7 @@
     nord15: #b48ead;
 
     background-color: @nord1;
+    /*background-color: #10151a;*/
     border: 0px;
     margin: 0px;
     padding: 0px;

@@ -1,0 +1,20 @@
+[Desktop Entry]
+DefaultProfile=Profile 3.profile
+
+[DownloadDialog Settings]
+DP1-1 eDP1 DP1-2 Height 1080=494
+DP1-1 eDP1 DP1-2 Width 1920=700
+
+[Favorite Profiles]
+Favorites=
+
+[MainWindow]
+DP1-1 eDP1 DP1-2 Window-Maximized 1080x1920=true
+DP1-1 eDP1 DP1-2 XPosition=3840
+DP1-1 eDP1 DP1-2 YPosition=21
+State=AAAA/wAAAAD9AAAAAAAAB4AAAAQCAAAABAAAAAQAAAAIAAAACPwAAAAA
+ToolBarsMovable=Disabled
+eDP1 Height 1080=544
+eDP1 Width 1920=789
+eDP1 XPosition=196
+eDP1 YPosition=236

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=/home/rughi/.scripts/sxhkd_plasma
+Icon=
+Name=sxhkd_plasma
+Path=
+Terminal=False
+Type=Application

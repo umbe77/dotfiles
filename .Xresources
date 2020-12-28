@@ -28,7 +28,8 @@ Xcursor.size: 16
 #define nord15 #B48EAD
 
 *.foreground:   nord4
-*.background:   nord0
+! *.background:   nord0
+*.background: #10151a
 *.cursorColor:  nord4
 *fading: 35
 *fadeColor: nord3
@@ -66,3 +67,5 @@ Xcursor.size: 16
 *.nord13: nord13 
 *.nord14: nord14 
 *.nord15: nord15 
+
+XTerm.termName: xterm-256color

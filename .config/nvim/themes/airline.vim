@@ -1,5 +1,5 @@
 
-let g:airline_theme = 'oceanicnext'
+let g:airline_theme = 'onedark'
 " enable tabline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''

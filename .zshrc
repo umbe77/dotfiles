@@ -46,7 +46,7 @@ bindkey -M vicmd ' ' edit-command-line
 setopt histignorealldups sharehistory
 
 # If you come from bash you might have to change your $PATH.
-source .pathdef
+source ~/.pathdef
 #export PATH=$HOME/.gem/ruby/2.7.0/bin:$HOME/.dotnet/tools:$HOME/.scripts:$HOME/bin:/snap/bin:/usr/local/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export XDG_CONFIG_HOME=$HOME/.config
@@ -124,10 +124,10 @@ source ~/.aliasrc
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_OPTS='
---color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C
---color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B
-'
+#export FZF_DEFAULT_OPTS='
+#--color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C
+#--color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B
+#'
 
 [ -f ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 

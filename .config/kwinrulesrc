@@ -1,0 +1,67 @@
+[$Version]
+update_info=kwinrules.upd:replace-placement-string-to-enum
+
+[1]
+Description=Application settings for azuredatastudio
+desktop=8
+desktoprule=3
+wmclass=azuredatastudio
+wmclassmatch=1
+
+[2]
+Description=Application settings fortelegram
+desktop=7
+desktoprule=1
+wmclass=telegramdesktop
+wmclassmatch=1
+
+[3]
+Description=Application settings for whatsapp-nativefier-d40211
+desktop=7
+desktoprule=3
+wmclass=whatsapp\\-nativefier.*
+wmclassmatch=3
+
+[4]
+Description=Application settings for code
+desktop=3
+desktoprule=3
+wmclass=code
+wmclassmatch=1
+
+[5]
+Description=Application settings for gitkraken
+desktop=4
+desktoprule=2
+wmclass=gitkraken
+wmclassmatch=1
+
+[6]
+Description=Application settings for spotify
+desktop=6
+desktoprule=2
+maximizehoriz=true
+maximizehorizrule=4
+maximizevert=true
+maximizevertrule=4
+wmclass=spotify
+wmclassmatch=1
+
+[7]
+Description=Application settings for chromium
+desktop=2
+desktoprule=3
+windowrole=browser
+windowrolematch=1
+wmclass=chromium
+
+[8]
+Description=Settings for desktopeditors desktopeditors
+desktop=9
+desktoprule=2
+wmclass=desktopeditors desktopeditors
+wmclasscomplete=true
+wmclassmatch=1
+
+[General]
+count=8
