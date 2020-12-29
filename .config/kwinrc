@@ -28,6 +28,10 @@ Name_9=
 Number=10
 Rows=1
 
+[Effect-Blur]
+BlurStrength=9
+NoiseStrength=1
+
 [Effect-Wobbly]
 Drag=90
 Stiffness=6
@@ -37,7 +41,7 @@ WobblynessLevel=2
 ParachuteEnabled=true
 blurEnabled=true
 desktopchangeosdEnabled=true
-forceblurEnabled=false
+forceblurEnabled=true
 highlightwindowEnabled=true
 krohnkiteEnabled=false
 kwin4_effect_fadedesktopEnabled=true
@@ -55,6 +59,9 @@ showDesktopShadows=true
 
 [Script-desktopchangeosd]
 TextOnly=true
+
+[Script-forceblur]
+patterns=yakuake\nurxvt\nkeepassxc\nDolphin\nkitty
 
 [Script-krohnkite]
 enableFloatingLayout=true
