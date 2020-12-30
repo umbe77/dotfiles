@@ -57,7 +57,7 @@ export SSH_ASKPASS=$HOME/.scripts/ssh-ask-passwd
 #export WEATHER_CACHE=$HOME/.cache/umbe/weather
 
 
-export TERMINAL
+export TERMINAL=kitty
 
 export EDITOR=nvim
 

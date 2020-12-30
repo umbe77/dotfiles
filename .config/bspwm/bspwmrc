@@ -2,16 +2,17 @@
 
 # Initialize PATH Variable
 
-. "${HOME}/.pathdef"
-
-
-#AUTOSTART section
-. "${HOME}/.xcommonstart"
-
 $HOME/.config/polybar/launch.sh &
 sxhkd &
+dunst &
 $HOME/.scripts/bspwm_subscribe_sticky &
 $HOME/.scripts/bspwm_subscribe_hidden &
+picom &
+xbanish &
+nitrogen --restore &
+start-pulseaudio-x11 &
+nm-applet &
+volumeicon &
 
 #bspwm initial config section
 

@@ -2,7 +2,7 @@
 # bspwm hotkeys
 #
 super + Return
-    $TERMINAL
+    kitty
 
 # quit bspwm normally
 super + alt + Escape
@@ -139,7 +139,7 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 # program launcher
-super + p 
+alt + p 
 	$HOME/.scripts/dmenu_run_colors
 
 alt + l
@@ -149,17 +149,17 @@ super + {_,shift +} d
     {start_containers,stop_containers}
 
 alt + b
-    chromium-browser
+    chromium
 
-alt + i
-    chromium-browser --incognito
+alt + shift + b
+    chromium --incognito
 super + e
-     alacritty -t Ranger -e ~/.scripts/explorer
+     kitty -T Ranger ~/.scripts/explorer
     #ranger
 
 alt + s
     rofi -modi ssh -show ssh
-alt + w
+super + w
     rofi -modi window -show window
 alt + space
     rofi -modi drun,run -show drun -show-icons

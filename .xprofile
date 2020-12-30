@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 setxkbmap -option caps:escape &
-#source ~/.xcommonstart 
-#[ -f ~/.screenlayout/umbedesk.sh ] && source ~/.screenlayout/umbedesk.sh &
+xrdb -merge ~/.Xresources &
+xsetroot -cursor_name left_ptr &
+
+[ -f ~/.screenlayout/homebox.sh ] && source ~/.screenlayout/homebox.sh &

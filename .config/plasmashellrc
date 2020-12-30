@@ -1,6 +1,8 @@
 [DownloadDialog Settings]
 DP1-1 eDP1 DP1-2 Height 1080=494
 DP1-1 eDP1 DP1-2 Width 1920=700
+HDMI1 HDMI2 Height 1080=494
+HDMI1 HDMI2 Width 1920=700
 eDP1 Height 1080=494
 eDP1 Width 1920=700
 
@@ -9,8 +11,8 @@ Geometry=\x01\xd9\xd0\xcb\x00\x03\x00\x00\x00\x00\t}\x00\x00\x00\x87\x00\x00\x0c
 SplitterState=\x00\x00\x00\xff\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x07\x08\x00\x00\x01\x10\x01\xff\xff\xff\xff\x01\x00\x00\x00\x02\x00
 
 [KFileDialog Settings]
-Recent Files[$e]=daniel-leone-v7daTKlZzaw-unsplash [modded].jpg,file:$HOME/Pictures/Archlinux-icon-crystal-64.svg,file:$HOME/Pictures/daniel-leone-v7daTKlZzaw-unsplash [modded].jpg
-Recent URLs[$e]=file:$HOME/Pictures/,file:$HOME/Documents/
+Recent Files[$e]=daniel-leone-v7daTKlZzaw-unsplash [modded].jpg,file:$HOME/Pictures/daniel-leone-v7daTKlZzaw-unsplash [modded].jpg
+Recent URLs[$e]=file:$HOME/Pictures/,file:$HOME/Documents/,file:$HOME/
 detailViewIconSize=0
 iconViewIconSize=43
 
@@ -109,17 +111,19 @@ Word Completion Remove Tail=true
 [PlasmaRunnerManager]
 LaunchCounts=1 services_applications:spotify.desktop,1 services_applications:postman.desktop,1 services_applications:org.kde.kwikdisk.desktop,1 services_applications:systemsettings.desktop,1 services_applications:org.kde.discover.desktop
 
-[PlasmaTransientsConfig]
-PreloadWeight=52
-
 [PlasmaViews][Panel 2]
 alignment=132
 panelVisibility=0
 
 [PlasmaViews][Panel 2][Defaults]
+maxLength=1920
+minLength=1920
+offset=0
 thickness=21
 
 [PlasmaViews][Panel 2][Horizontal1920]
+alignment=132
+panelVisibility=0
 thickness=21
 
 [PlasmaViews][Panel 44][Defaults]
@@ -144,8 +148,8 @@ thickness=21
 thickness=21
 
 [ScreenConnectors]
-0=DP1-1
-1=HDMI1
+0=HDMI1
+1=HDMI2
 2=DP1-2
 3=eDP1
 

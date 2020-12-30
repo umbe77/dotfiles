@@ -8,7 +8,8 @@
 ;
 
 [colors]
-background = #902E3440
+;background = #902E3440
+background = #8010151a
 ;background = ${xrdb:background}
 background-alt = ${xrdb:color8}
 foreground = ${xrdb:foreground:#dfdfdf}
@@ -21,7 +22,7 @@ urgent = ${xrdb:color1}
 magenta = ${xrdb:color13} 
 
 underline_focus = ${xrdb:color11}
-underline_occupied = ${xrdb:color4}
+underline_occupied = ${xrdb:color6}
 
 [bar/base]
 width = 100%
@@ -63,21 +64,25 @@ cursor-scroll = ns-resize
 inherit = bar/base
 modules-left = bspwm xwindow
 ;modules-center = mpd
-modules-right = bspwmpin bspwmhidden pulseaudio weather popupdate bspwmpower
+modules-right = bspwmpin bspwmhidden pulseaudio popupdate bspwmpower
 
 tray-position = right
-tray-padding = 2
+tray-padding = 5
 ;tray-background = #0063ff
 
 
 [bar/secondary]
 monitor = ${env:MONITOR}
 inherit = bar/base
-modules-left = bspwm xwindow
+modules-left = bspwm xwindow 
 ;modules-center = mpd
-modules-right = bspwmpin bspwmhidden pulseaudio weather date
+modules-right = bspwmpin bspwmhidden pulseaudio date
 
 tray-position = none
+
+[module/emwh]
+type = internal/xworkspaces
+
 
 [module/xwindow]
 type = internal/xwindow
@@ -116,6 +121,9 @@ pin-workspaces = true
 
 format = <label-state> <label-mode>
 
+label-dimmed-foreground = #4c566a
+label-dimmed-background = #3b4252
+
 label-focused = %name%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.underline_focus}
@@ -130,19 +138,19 @@ label-urgent-background = ${colors.urgent}
 label-urgent-padding = 1
 
 label-empty = %name%
-label-empty-foreground = ${colors.foreground-alt}
+label-empty-foreground = ${colors.foreground}
 label-empty-padding = 1
 
 label-monocle = "  "
 label-monocle-foreground = ${colors.magenta}
 label-tiled = "  "
-label-tiled-foreground = ${colors.alert}
+label-tiled-foreground = ${colors.magenta}
 label-fullscreen = "  "
 label-fullscreen-foreground = ${colors.magenta}
 label-floating = "  "
 label-floating-foreground = ${colors.magenta}
 label-pseudotiled = "  "
-label-pseudotiled-foreground = ${colors.magenta}
+label-pseudotiled-foreground = ${colors.alert}
 label-locked = "  "
 label-locked-foreground = ${colors.urgent}
 label-sticky = "  "

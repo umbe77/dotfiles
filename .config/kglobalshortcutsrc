@@ -1,5 +1,6 @@
 [ActivityManager]
 _k_friendly_name=Activity Manager
+switch-to-activity-0dcc783a-eaec-4dc2-9ddb-f3cf15d7b106=none,none,Switch to activity "Default"
 switch-to-activity-8de1bb92-9d81-456a-88cd-bcc9bb07a8ee=none,none,Switch to activity "Default"
 
 [KDE Keyboard Layout Switcher]
@@ -31,18 +32,13 @@ display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
 _k_friendly_name=Custom Shortcuts Service
-{18d80ea4-f8b3-4403-878c-372477a2bee8}=Alt+P,none,dmenu
-{1978d92b-1374-46cd-8b86-ecaebdcc920f}=Meta+Return,none,terminal
-{4be61347-dba1-47f8-bfc6-718bc681a7ab}=Meta+E,none,explorer
-{62fd2775-b2c9-4c83-9be3-66a09cee8988}=Ctrl+Alt+T,none,Launch Konsole
-{688e31e3-7814-480d-b6e5-bd50a9b6e5b1}=Meta+Shift+Return,none,tmux
-{88e84bf0-a564-48c3-933a-d4186554097d}=Alt+Space,none,rofi launcher
-{aae5fe14-4b40-4248-acbd-484ced47e837}=Alt+S,none,ssh
-{c31d6972-93e2-4562-8692-4c5e4d3a9928}=Meta+W,none,rofi switcher
+{2d98f1d0-17a8-487d-8c12-4450401684b4}=none,none,kitty
+{3ba71841-3001-4442-8308-c74057c6f83e}=Ctrl+Alt+T,none,Launch Konsole
+{c22abe3e-675d-4d79-a34d-e2424d3e0301}=none,none,dmenu
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
 
 [kmix]
-_k_friendly_name=Audio Volume
+_k_friendly_name=KMix
 decrease_microphone_volume=Microphone Volume Down,Microphone Volume Down,Decrease Microphone Volume
 decrease_volume=Volume Down,Volume Down,Decrease Volume
 increase_microphone_volume=Microphone Volume Up,Microphone Volume Up,Increase Microphone Volume

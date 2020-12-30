@@ -32,10 +32,16 @@ Rows=1
 BlurStrength=9
 NoiseStrength=1
 
+[Effect-PresentWindows]
+BorderActivateAll=9
+
 [Effect-Wobbly]
 Drag=90
 Stiffness=6
 WobblynessLevel=2
+
+[ElectricBorders]
+TopLeft=None
 
 [Plugins]
 ParachuteEnabled=true
@@ -75,6 +81,7 @@ active=-1
 count=0
 
 [TabBox]
+BorderActivate=9
 DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
 LayoutName=MediumRoundedDark

@@ -52,18 +52,18 @@ ForegroundPositive=46,174,230
 ForegroundVisited=61,174,230
 
 [Colors:Header]
-BackgroundAlternate=49,49,49
-BackgroundNormal=61,61,62
-DecorationFocus=170,170,170
-DecorationHover=150,150,150
-ForegroundActive=255,128,224
-ForegroundInactive=160,160,160
-ForegroundLink=46,184,230
-ForegroundNegative=240,1,1
-ForegroundNeutral=255,221,0
-ForegroundNormal=255,255,255
-ForegroundPositive=128,255,128
-ForegroundVisited=255,102,102
+BackgroundAlternate=47,52,63
+BackgroundNormal=20,26,33
+DecorationFocus=76,99,125
+DecorationHover=76,99,125
+ForegroundActive=97,127,159
+ForegroundInactive=102,106,115
+ForegroundLink=41,128,185
+ForegroundNegative=218,68,83
+ForegroundNeutral=246,116,0
+ForegroundNormal=211,218,227
+ForegroundPositive=39,174,96
+ForegroundVisited=76,99,125
 
 [Colors:Selection]
 BackgroundAlternate=76,99,125
@@ -135,7 +135,7 @@ shadeSortColumn=true
 widgetStyle=Breeze
 
 [Icons]
-Theme=Tela-circle-dark
+Theme=Tela-dark
 
 [KDE]
 ColorScheme=Breeze
