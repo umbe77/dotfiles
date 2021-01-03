@@ -69,10 +69,14 @@ super + {o,i}
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} 'focused:^{1-9,10}'
+super + alt {1-9,0}
+    $HOME/.scripts/bspwm_same_destop_all_monitor {1-9,10}
 
 # focus next/prev monitor
 super + {comma,period} 
     bspc monitor -f {prev,next}
+super + shift + {comma,period}
+    bspc node -m {prev,next} --follow
 #
 # preselect AKA manual
 #
@@ -113,10 +117,10 @@ super + {Left,Down,Up,Right}
 # custom bspwm commands
 #
 
-alt + f
+super + shift + d
     $HOME/.scripts/bspwm_sticky
 
-alt + h
+super + d
     $HOME/.scripts/bspwm_sticky_toggle_hide
 
 super + b
@@ -128,9 +132,9 @@ alt + shift + l
 alt + Tab
     $HOME/.scripts/bspwm_window_on_desktop
 
-ctrl + h
+ctrl + m
     $HOME/.scripts/bspwm_hidden_nodes
-#
+
 # wm independent hotkeys
 #
 
@@ -141,9 +145,6 @@ super + Escape
 # program launcher
 alt + p 
 	$HOME/.scripts/dmenu_run_colors
-
-alt + l
-    locker
 
 super + {_,shift +} d
     {start_containers,stop_containers}
@@ -158,9 +159,9 @@ super + e
     #ranger
 
 alt + s
-    rofi -modi ssh -show ssh
+    rofi -modi ssh -show ssh -monitor -1
 super + w
-    rofi -modi window -show window
+    rofi -modi window -show window -show-icons -monitor -1
 alt + space
-    rofi -modi drun,run -show drun -show-icons
+    rofi -modi drun,run -show drun -show-icons -monitor -1
 

@@ -3,4 +3,4 @@ setxkbmap -option caps:escape &
 xrdb -merge ~/.Xresources &
 xsetroot -cursor_name left_ptr &
 
-[ -f ~/.screenlayout/homebox.sh ] && source ~/.screenlayout/homebox.sh &
+#[ -f ~/.screenlayout/archdev.sh ] && source ~/.screenlayout/archdev.sh &

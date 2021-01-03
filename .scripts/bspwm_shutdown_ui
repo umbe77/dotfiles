@@ -3,8 +3,8 @@
 ACTION=$(yad --entry --title "Shutdown menu" \
 --width 300 \
 --image gnome-shutdown \
---button=gtk-ok:0 \
---button=gtk-close:1 \
+--button=OK:0 \
+--button=Close:1 \
 --text "Choose:" \
 --entry-text \
 "Logout" "Reboot" "Power Off"

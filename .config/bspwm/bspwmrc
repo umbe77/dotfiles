@@ -1,19 +1,41 @@
 #!/usr/bin/env bash
 
+[ -f ~/.screenlayout/archdev.sh ] && source ~/.screenlayout/archdev.sh &
 # Initialize PATH Variable
 
 $HOME/.config/polybar/launch.sh &
+$HOME/.local/bin/openweatherwidget -refresh &
 sxhkd &
 dunst &
+xautolock -time 10 -locker ~/.scripts/locker &
 $HOME/.scripts/bspwm_subscribe_sticky &
 $HOME/.scripts/bspwm_subscribe_hidden &
 picom &
 xbanish &
 nitrogen --restore &
 start-pulseaudio-x11 &
-nm-applet &
 volumeicon &
 
+killall -q volumeicon
+
+while pgrep -u $UID -x volumeicon >/dev/null; do sleep 1; done
+
+command -v volumeicon > /dev/null && volumeicon &
+
+killall -q blueman-applet
+while pgrep -u $UID -x blueman-applet >/dev/null; do sleep 1; done
+
+command -v blueman-applet > /dev/null && blueman-applet &
+
+killall -q nm-applet
+while pgrep -u $UID -x nm-applet >/dev/null; do sleep 1; done
+
+command -v nm-applet > /dev/null && nm-applet &
+
+killall -q udiskie
+while pgrep -u $UID -x udiskie >/dev/null; do sleep 1; done
+
+command -v udiskie > /dev/null && udiskie -t -n &
 #bspwm initial config section
 
 bspc rule -r "*"
@@ -61,3 +83,5 @@ bspc rule -a vlc state=floating
 bspc rule -a "Microsoft Teams - Preview" state=floating
 bspc rule -a mpv state=floating
 bspc rule -a GitKraken state=floating
+bspc rule -a Pavucontrol state=floating
+bspc rule -a Blueman-manager state=floating
