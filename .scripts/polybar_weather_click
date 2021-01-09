@@ -3,4 +3,4 @@
 NEW_CITY=$(zenity --entry \
     --title="Current City" \
     --text="Enter current city" 2> /dev/null) 
-~/.local/bin/openweatherwidget -set-city="$NEW_CITY"
+[ -n "$NEW_CITY" ] && ~/.local/bin/openweatherwidget -set-city="$NEW_CITY"

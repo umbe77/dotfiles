@@ -529,7 +529,7 @@ format-foreground = ${colors.alert}
 format-font = 2
 format-underline = ${colors.magenta}
 
-hook-0 = echo "  "
+hook-0 = echo " 車 "
 hook-1 = echo ""
 
 click-left = ~/.scripts/bspwm_sticky_toggle_hide

@@ -3,6 +3,8 @@
 [ -f ~/.screenlayout/archdev.sh ] && source ~/.screenlayout/archdev.sh &
 # Initialize PATH Variable
 
+setxkbmap -option grp:alt_shift_toggle us,it &
+
 $HOME/.config/polybar/launch.sh &
 $HOME/.local/bin/openweatherwidget -refresh &
 sxhkd &

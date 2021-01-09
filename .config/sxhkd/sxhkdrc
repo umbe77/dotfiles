@@ -126,7 +126,7 @@ super + d
 super + b
     $HOME/.scripts/bspwm_hide_bar
 
-alt + shift + l
+ctrl + alt + l
     $HOME/.scripts/bspwm_shutdown_ui
 
 alt + Tab
