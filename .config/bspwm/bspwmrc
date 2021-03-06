@@ -14,9 +14,9 @@ $HOME/.scripts/bspwm_subscribe_sticky &
 $HOME/.scripts/bspwm_subscribe_hidden &
 picom &
 xbanish &
+lxpolkit &
 nitrogen --restore &
 start-pulseaudio-x11 &
-volumeicon &
 
 killall -q volumeicon
 
@@ -87,3 +87,5 @@ bspc rule -a mpv state=floating
 bspc rule -a GitKraken state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Blueman-manager state=floating
+
+wmname LG3D

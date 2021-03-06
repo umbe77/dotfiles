@@ -2,9 +2,11 @@
 alias vi='nvim'
 alias startx='ssh-agent startx'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias ls='exa -l --color=always --group-directories-first' # my preferred listing
-alias ll='exa -al --color=always --group-directories-first'
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
+#alias ls='exa -l --color=always --group-directories-first' # my preferred listing
+#alias ll='exa -al --color=always --group-directories-first'
+#alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias ls='lsd -Fl'
+alias ll='lsd -aFl'
 alias ip='ip -color=auto'
 alias df='df -h'
 alias cat='bat'
@@ -18,4 +20,4 @@ alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/p
 alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 
 alias update='sudo pacman -Syyyu'
-alias upall="yay -Syyyu --noconfirm"
+alias upall="paru -Syyyu --noconfirm"

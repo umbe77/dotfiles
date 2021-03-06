@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+export _JAVA_AWT_WM_NONREPARENTING=1
 setxkbmap -option caps:escape &
 xrdb -merge ~/.Xresources &
 xsetroot -cursor_name left_ptr &

@@ -135,6 +135,8 @@ alt + Tab
 ctrl + m
     $HOME/.scripts/bspwm_hidden_nodes
 
+alt + w
+    $HOME/.scripts/search-web
 # wm independent hotkeys
 #
 
