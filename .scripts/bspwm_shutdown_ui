@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 ACTION=$(yad --entry --title "Shutdown menu" \
+--center \
 --width 300 \
 --image gnome-shutdown \
 --button=OK:0 \

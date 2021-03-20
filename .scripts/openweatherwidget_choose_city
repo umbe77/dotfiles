@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+NEW_CITY=$(zenity --entry \
+    --title="Current City" \
+    --text="Enter current city" 2> /dev/null) 
+if [ -n "$NEW_CITY" ]; then
+    ~/.local/bin/openweatherwidget -set-city="$NEW_CITY" >> /dev/null
+    echo "$NEW_CITY"
+    exit 0
+fi
+
+exit 1

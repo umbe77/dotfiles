@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+ACTION=$(yad --entry --title "Shutdown menu" \
+--center \
+--width 300 \
+--image gnome-shutdown \
+--button=OK:0 \
+--button=Close:1 \
+--text "Choose:" \
+--entry-text \
+"Logout" "Reboot" "Power Off"
+)
+ret=$?
+
+[ "$ret" == "1" ] && exit 0
+
+case $ACTION in
+    Logout*)
+        awesome-client 'awesome.quit()'
+        ;;
+    Reboot*)
+        systemctl reboot
+        ;;
+    Power*)
+        systemctl poweroff
+        ;;
+esac

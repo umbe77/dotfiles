@@ -1,7 +1,43 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash 
+[ -f ~/.screenlayout/homebox.sh ] && source ~/.screenlayout/homebox.sh 
 export _JAVA_AWT_WM_NONREPARENTING=1
-setxkbmap -option caps:escape &
+#setxkbmap -option grp:alt_shift_toggle us,it &
+#setxkbmap -option caps:escape &
+$HOME/.local/bin/openweatherwidget -refresh &
 xrdb -merge ~/.Xresources &
 xsetroot -cursor_name left_ptr &
 
-#[ -f ~/.screenlayout/archdev.sh ] && source ~/.screenlayout/archdev.sh &
+xautolock -time 10 -locker ~/.scripts/locker &
+picom &
+xbanish &
+lxpolkit &
+nitrogen --restore &
+start-pulseaudio-x11 &
+
+#killall -q ulauncher
+#
+#while pgrep -u $UID -x ulauncher >/dev/null; do sleep 1; done
+#
+#command -v ulauncher > /dev/null && ulauncher --no-window-shadow &
+
+killall -q volumeicon
+
+while pgrep -u $UID -x volumeicon >/dev/null; do sleep 1; done
+
+command -v volumeicon > /dev/null && volumeicon &
+
+killall -q blueman-applet
+while pgrep -u $UID -x blueman-applet >/dev/null; do sleep 1; done
+
+command -v blueman-applet > /dev/null && blueman-applet &
+
+killall -q nm-applet
+while pgrep -u $UID -x nm-applet >/dev/null; do sleep 1; done
+
+command -v nm-applet > /dev/null && nm-applet &
+
+killall -q udiskie
+while pgrep -u $UID -x udiskie >/dev/null; do sleep 1; done
+
+command -v udiskie > /dev/null && udiskie -t -n &
+
