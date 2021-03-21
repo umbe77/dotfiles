@@ -24,6 +24,7 @@ local raise_terminal = function()
             callback = function(clt)
                 clt:connect_signal("unmanage", function(u_clt)
                     c = nil
+                    w:set_markup('<span foreground="#EBCB8B"></span>')
                 end)
                 clt:connect_signal("property::hidden", function(h_clt)
                     if not c.hidden then

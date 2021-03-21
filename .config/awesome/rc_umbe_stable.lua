@@ -23,6 +23,26 @@ local openweather_widget = require('umbe.widgets.weather')
 local calendar_widget = require('awesome-wm-widgets.calendar-widget.calendar')
 local batteryrc_widget = require('awesome-wm-widgets.batteryarc-widget.batteryarc')
 
+local notfocusedfilter = function(c, s)
+    if c.screen ~= s then
+        return false
+    end
+    for _, t in ipairs(s.tags) do
+        if t.selected then
+            --naughty.notify({
+            --    title = "CLIENTS",
+            --    text = tostring(t:tags())
+            --})
+            for _, v in ipairs(c:tags()) do
+                if v == t and client.focus ~= c then
+                    return true
+                end
+            end
+        end
+    end
+    return false
+end
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -198,7 +218,7 @@ awful.screen.connect_for_each_screen(function(s)
 
     local tasklist_notfocus = awful.widget.tasklist {
         screen   = s,
-        filter   = awful.widget.tasklist.filter.minimizedcurrenttags,
+        filter   = notfocusedfilter, -- awful.widget.tasklist.filter.minimizedcurrenttags,
         buttons  = tasklist_buttons,
         layout   = {
             spacing = 1,
