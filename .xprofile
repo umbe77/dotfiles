@@ -13,6 +13,7 @@ xbanish &
 lxpolkit &
 nitrogen --restore &
 start-pulseaudio-x11 &
+ulauncher --no-window-shadow --hide-window &
 
 #killall -q ulauncher
 #
