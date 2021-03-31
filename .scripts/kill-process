@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+pid=$(ps -u $USER -o pid,%mem,%cpu,comm | awk '{if (NR!=1) {print}}'| sort -k 2 -r | rofi -dmenu -p "Process: " -matching fuzzy | awk '{print $1}')
+
+if [ -n "$pid" ]; then
+    kill -15 "$pid"
+    notify-send "Termination" "killed process: <b>$pid</b>"
+else
+    exit 0
+fi
+

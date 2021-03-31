@@ -357,6 +357,13 @@ end, {description = "dmenu launcer", group = "launcher"}),
        description = "Open GUI file manager",
        group = "Applications",
     }),
+    awful.key({altkey}, "t", function ()
+       --awful.spawn.with_shell("kill-process")
+       awful.spawn.with_shell(os.getenv("HOME") .. "/.scripts/kill-process")
+    end, {
+       description = "Kill Process",
+       group = "Applications",
+    }),
     awful.key({modkey, "Control"}, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
                               awful.key({modkey, "Shift"}, "q", awesome.quit, {
