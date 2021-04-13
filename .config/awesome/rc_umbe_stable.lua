@@ -338,8 +338,8 @@ end, {description = "focus the previous screen", group = "screen"}),
     awful.client.focus.history.previous()
     if client.focus then client.focus:raise() end
 end, {description = "go back", group = "client"}), -- Standard program
--- awful.key({ altkey }, "space", function () awful.spawn.with_shell("rofi -modi drun -show drun -show-icons") end,
---           {description = "rofi launcher", group = "launcher"}),
+--awful.key({ "Control" }, "space", function () awful.spawn.with_shell("rofi -modi drun -show drun -show-icons") end,
+--          {description = "rofi launcher", group = "launcher"}),
 awful.key({altkey}, "space",
           function() awful.spawn.with_shell("ulauncher-toggle") end,
           {description = "Ulauncher", group = "launcher"}),
