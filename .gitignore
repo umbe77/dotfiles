@@ -113,3 +113,4 @@ dmypy.json
 
 # End of https://www.gitignore.io/api/python
 
+.config/nvim/plugin

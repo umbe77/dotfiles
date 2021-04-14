@@ -47,6 +47,8 @@ alias ls='ls -lh --color=auto'
 alias ll='ls -alh --color=auto'
 alias sync-files="rsync -ah --progress --chmod=+rx"
 alias vi='vim'
+alias up='uptime -p'
+alias ups='uptime -s'
 
 shopt -s checkwinsize
 shopt -s expand_aliases

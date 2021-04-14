@@ -64,5 +64,6 @@ return require('packer').startup(function(use)
     use 'liuchengxu/vim-which-key'
     use 'kevinhwang91/nvim-bqf'
     use 'voldikss/vim-floaterm'
+    use 'wfxr/minimap.vim'
 end)
 

@@ -21,6 +21,7 @@ require('nv-lightbulb')
 
 vim.cmd('source ~/.config/nvim/vim/nv-wichkey.vim')
 vim.cmd('source ~/.config/nvim/vim/functions.vim')
+vim.cmd('source ~/.config/nvim/vim/nv-minimap.vim')
 
 --Telescope
 require('nv-telescope')
