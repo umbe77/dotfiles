@@ -15,6 +15,7 @@ require('nv-comment')
 require('nv-barbar')
 require('nv-nvimtree')
 require('nv-compe')
+require('nv-autopairs')
 
 require('nv-lspkind')
 require('nv-lightbulb')

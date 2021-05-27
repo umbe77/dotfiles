@@ -2,11 +2,11 @@
 alias vi='nvim'
 alias startx='ssh-agent startx'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-#alias ls='exa -l --color=always --group-directories-first' # my preferred listing
-#alias ll='exa -al --color=always --group-directories-first'
-#alias lt='exa -aT --color=always --group-directories-first' # tree listing
-alias ls='lsd -Fl'
-alias ll='lsd -aFl'
+alias ls='exa -l --icons --git --group --color=always --group-directories-first' # my preferred listing
+alias ll='exa -al --icons --git --group --color=always --group-directories-first'
+alias lt='exa -T --icons --git --group --color=always --group-directories-first' # tree listing
+# alias ls='lsd -Fl'
+# alias ll='lsd -aFl'
 alias ip='ip -color=auto'
 alias df='df -h'
 alias cat='bat'

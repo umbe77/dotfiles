@@ -46,6 +46,7 @@ bindkey -M vicmd ' ' edit-command-line
 setopt histignorealldups sharehistory
 
 # If you come from bash you might have to change your $PATH.
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 source ~/.pathdef
 #export PATH=$HOME/.gem/ruby/2.7.0/bin:$HOME/.dotnet/tools:$HOME/.scripts:$HOME/bin:/snap/bin:/usr/local/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH
 export GOPATH=$HOME/go
@@ -55,6 +56,9 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export XDG_CONFIG_HOME=$HOME/.config
 export TZ=Europe/Rome
 export SSH_ASKPASS=$HOME/.scripts/ssh-ask-passwd
+
+export DENO_INSTALL=$HOME/.deno
+export PATH=$DENO_INSTALL/bin:$PATH
 
 #export CURRENT_CITY_PATH=$HOME/.cache/umbe/current_city
 #export WEATHER_CACHE=$HOME/.cache/umbe/weather
