@@ -14,7 +14,7 @@ lxpolkit &
 nitrogen --restore &
 start-pulseaudio-x11 &
 ulauncher --no-window-shadow --hide-window &
-xfce4-power-manager --daemon
+# xfce4-power-manager --daemon
 
 #killall -q ulauncher
 #
