@@ -650,7 +650,7 @@ client.connect_signal("unfocus",
                       function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 awful.spawn("setxkbmap -option grp:alt_shift_toggle us,it")
-awful.spawn("setxkbmap -option caps:escape")
+awful.spawn.with_shell("setxkbmap -option caps:escape")
 
 --[[
 require('awful.dbus')
